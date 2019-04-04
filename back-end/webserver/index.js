@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const routes = require('./routers/index');
+const routes = require('./routers');
 
 const app = express();
 let server = null;
@@ -34,13 +34,17 @@ app.use((req, res, next) => {
 /**
  * Add all routes
  */
+
 app.use('/api', routes.productRouter);
+app.use('/api', routes.createUser);
 // app.use('/api', routes.userRouter);
 // app.use('/api', routes.postRouter);
 
+app.get('');
+
 app.use('*', (req, res, next) => {
   return res.status(404).send({
-    message: 'Se siente, tus amigos no están aquí',
+    message: 'Ruta no encontrada',
   });
 });
 

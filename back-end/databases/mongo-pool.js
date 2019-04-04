@@ -1,9 +1,5 @@
 'use strict'
 
-// module.exports = {
-//   db: process.env.MONGODB || 'mongodb://localhost:27017/inmovilizado'
-// }
-
 const mongoose = require('mongoose');
 
 mongoose.Promise = Promise;

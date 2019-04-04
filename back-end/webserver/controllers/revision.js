@@ -1,6 +1,6 @@
 'use strict'
 
-const Revision = require('../models/revisions');
+const Revision = require('../../models/revisions');
 
 function getRevision(req, res) {
   const revisionId = req.params.id;

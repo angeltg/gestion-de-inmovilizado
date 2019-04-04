@@ -1,6 +1,6 @@
 'use strict'
 
-const Employee = require('../models/employees');
+const Employee = require('../../models/employees');
 
 function getEmployee(req, res) {
   const employeeId = req.params.id;

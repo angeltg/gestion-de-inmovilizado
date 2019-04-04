@@ -2,7 +2,7 @@
 
 const express = require('express');
 
-const productCtrl = require('../../controllers/product');
+const productCtrl = require('../controllers/product');
 
 const api = express.Router();
 

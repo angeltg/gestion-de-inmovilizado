@@ -6,9 +6,9 @@ const Schema = mongoose.Schema;
 const AssignmentSchema = Schema({
 
   uuidProduct: String,
-  createdAd: Date,
+  createdAt: { type: Date, default: Date.now },
   uuidEmployee: String,
-  finalAd: Date,
+  finalAt: Date,
   description: String
 
 });

@@ -1,6 +1,6 @@
 'use strict'
 
-const Assignment = require('../models/assignment');
+const Assignment = require('../../models/assignment');
 
 function getAssignment(req, res) {
   const assignmentId = req.params.id;

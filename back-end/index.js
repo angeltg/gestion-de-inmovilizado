@@ -1,15 +1,11 @@
 'use strict'
 
-// const mongoose = require('mongoose');
 
 const config = require('./config/http-server-config');
-const configdb = require('./databases/mongo-pool');
-const webServer = require('./webserver/index');
+const webServer = require('./webserver');
 const mongoPool = require('./databases/mongo-pool');
-console.log(configdb.db);
+
 const port = config.port;
-
-
 
 process.on('uncaughtException', (err) => {
   console.error('excepción inesperada', err.message, err);

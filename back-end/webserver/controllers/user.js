@@ -1,6 +1,6 @@
 'use strict'
 
-const User = require('../models/users');
+const User = require('../../models/users');
 
 function getUser(req, res) {
   const userId = req.params.id;
@@ -22,12 +22,11 @@ function getUsers(req, res) {
 
 function saveUser(req, res) {
   console.log(req.body);
-  let user = new Revision();
-  user.uuidProduct = req.body.uuidProduct;
-  user.finalAd = req.body.finalAd;
-  user.description = req.body.description;
-  user.cost = req.body.cost;
-  useruidEmployee = req.body.uuidEmployee;
+  let user = new User();
+  user.fullName = req.body.fullName;
+  user.email = req.body.email;
+  user.password = req.body.password;
+  user.company = req.body.company;
 
   user.save((err, userStored) => {
     if (err) res.status(500).send({ messaje: `Error en el servidor ${err}` });

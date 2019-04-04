@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 
 const RevisionSchema = Schema({
   uuidProduct: String,
-  createdAd: Date,
-  finalAd: Date,
+  createdAt: Date,
+  finalAt: Date,
   description: String,
   cost: Number,
   uuidEmployee: String

@@ -6,11 +6,12 @@ const Schema = mongoose.Schema;
 const UserSchema = Schema({
 
   fullName: String,
-  email: String,
-  password: String,
-  company: String,
-  createdAd: { type: Date, default: Date.now },
-  confirmAd: Date
+  email: { type: String, unique: true, lowercase: true },
+  password: { type: String, select: false },
+  company: { type: String, unique: true },
+  createdAt: { type: Date, default: Date.now },
+  confirmAt: Date,
+  verificationCode: String
 
 });
 

@@ -1,6 +1,6 @@
 'use strict'
 
-const Category = require('../models/categories');
+const Category = require('../../models/categories');
 
 function getCategory(req, res) {
   const productId = req.params.id;
