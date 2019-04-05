@@ -10,7 +10,7 @@ const UserSchema = Schema({
   password: { type: String, select: false },
   company: { type: String, unique: true },
   createdAt: { type: Date, default: Date.now },
-  confirmAt: Date,
+  confirmAt: { type: Date, default: null },
   verificationCode: String
 
 });

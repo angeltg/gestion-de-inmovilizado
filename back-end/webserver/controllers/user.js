@@ -51,11 +51,18 @@ function deleteUser(id) {
     res.status(200).send(`Este user ha sido borrado`);
   })
 }
+function deleteUsers(req, res) {
+  User.deleteMany((err) => {
+    if (err) res.status(500).send(`Error en el servidor ${err}`);
+    res.status(200).send(`Todos los users han sido eliminados`);
+  })
+}
 
 module.exports = {
   getUser,
   getUsers,
   saveUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  deleteUsers
 }
