@@ -18,7 +18,8 @@ const ProductSchema = Schema({
   buyAt: { type: Date },
   amortizationAd: { type: Date },
   authoritation: String, // uuid de la collection authoritation para ver quién aprobó la compra
-  efficiency: [Number] //Valoración de los employe que han tenido asignado el product
+  efficiency: [Number], //Valoración de los employe que han tenido asignado el product
+  company: String
 });
 
 module.exports = mongoose.model('Product', ProductSchema);

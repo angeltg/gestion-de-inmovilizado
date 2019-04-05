@@ -7,7 +7,7 @@ const UserSchema = Schema({
 
   fullName: String,
   email: { type: String, unique: true, lowercase: true },
-  password: { type: String, select: false },
+  password: { type: String },
   company: { type: String, unique: true },
   createdAt: { type: Date, default: Date.now },
   confirmAt: { type: Date, default: null },

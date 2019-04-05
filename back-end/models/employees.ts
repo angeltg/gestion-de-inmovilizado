@@ -11,7 +11,8 @@ const EmployeeSchema = Schema ({
   roll: { type:String, enum: ['Manager','Purchasing','Accountant','Technical']},
   phone: String,
   avatar: String,
-  createdAt: { type: Date, default: Date.now}
+  createdAt: { type: Date, default: Date.now},
+  company: String
 });
 
 module.exports= mongoose.model('Employee', EmployeeSchema);
