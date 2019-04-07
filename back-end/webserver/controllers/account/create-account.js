@@ -13,14 +13,11 @@ const rute = process.env.HTTP_SERVER_DOMAIN;
 const mailKey = process.env.SENDGRID_API_KEY;
 
 async function validateSchema(payload) {
-  const sendgridMail = require('@sendgrid/mail');
 
   /**
-   * TODO: Fill email, password and full name rules to be (all fields are mandatory):
    *  email: Valid email
    *  password: Letters (upper and lower case) and number
    *    Minimun 3 and max 30 characters, using next regular expression: /^[a-zA-Z0-9]{3,30}$/
-   * fullName: String with 3 minimun characters and max 128
    */
   const schema = {
     email: Joi.string().email({ minDomainAtoms: 2 }).required(),

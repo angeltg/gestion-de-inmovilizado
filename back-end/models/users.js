@@ -11,7 +11,8 @@ const UserSchema = Schema({
   company: { type: String, unique: true },
   createdAt: { type: Date, default: Date.now },
   confirmAt: { type: Date, default: null },
-  verificationCode: String
+  verificationCode: String,
+  roll: { type: String, default: 'Manager' }
 
 });
 

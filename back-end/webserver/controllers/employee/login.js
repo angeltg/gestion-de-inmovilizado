@@ -8,7 +8,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const UserModel = require('../../../models/users');
+const EmployeeModel = require('../../../models/employees');
 
 async function validateData(payload) {
   const schema = {
@@ -32,25 +32,24 @@ async function login(req, res, next) {
   try {
     const { email } = accountData;
     const query = {
-      email,
-      confirmAt: { $ne: null }
+      email
     }
-    const userProfile = await UserModel.findOne(query);
-    console.log(userProfile);
-    if (!userProfile) {
+    const employeeProfile = await EmployeeModel.findOne(query);
+    console.log(employeeProfile);
+    if (!employeeProfile) {
       res.status(401).send('Datos incorrectos');
     }
     //Comprobamos la clave
-    const laPasswordEstaOk = await bcrypt.compare(accountData.password, userProfile.password);
+    const laPasswordEstaOk = await bcrypt.compare(accountData.password, employeeProfile.password);
     if (laPasswordEstaOk === false) { // !laPasswordEstaOk
       return res.status(401).send();
     }
 
     //Creamos el jwtoken para enviar al cliente
     const payloadJwt = {
-      uuid: userProfile._id,
-      company: userProfile.company,
-      roll: userProfile.roll,
+      uuid: employeeProfile._id,
+      company: employeeProfile.company,
+      roll: employeeProfile.roll,
     };
 
     const jwtTokenExpiration = parseInt(process.env.AUTH_ACCESS_TOKEN_TTL, 10);
