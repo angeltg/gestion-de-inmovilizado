@@ -23,7 +23,7 @@ function getRevisions(req, res) {
 function saveRevision(req, res) {
   console.log(req.body);
   let revision = new Revision();
-  revision.uuidProduct = req.body.uuidProduct;
+  revision.idProduct = req.body.idProduct;
   revision.finalAd = req.body.finalAd;
   revision.description = req.body.description;
   revision.cost = req.body.cost;

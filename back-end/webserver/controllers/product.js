@@ -63,7 +63,6 @@ function updateProduct(req, res, next) {
 
   const { claims } = req;
   const { company, roll } = claims;
-  console.log(`Company ${company}`);
 
   //Si no tiene permisos no puede modificar el producto
   if (roll === 'Employee') {

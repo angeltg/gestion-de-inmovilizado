@@ -13,7 +13,7 @@ const ProductSchema = Schema({
   category: [String], // Las categorías están en la colletion category
   price: Number,
   amortization: Number, // La amortización pendiente se calcula en función de la fecha de amortización
-  assignment: [], // Array con el uuid de las asignaciones del producto
+  assignment: { type: Boolean, default: false }, // Para saber si está libre o no. El historiel se guarda en la colletion assignment
   createdAt: { type: Date, default: Date.now },
   buyAt: { type: Date },
   amortizationAd: { type: Date },

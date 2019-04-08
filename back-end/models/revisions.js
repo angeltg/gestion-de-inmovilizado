@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const RevisionSchema = Schema({
-  uuidProduct: String,
+  idProduct: String,
   createdAt: Date,
   finalAt: Date,
   description: String,
