@@ -13,13 +13,13 @@ const ProductSchema = Schema({
   category: [String], // Las categorías están en la colletion category
   price: Number,
   amortization: Number, // La amortización pendiente se calcula en función de la fecha de amortización
-  assignment: { type: Boolean, default: false }, // Para saber si está libre o no. El historiel se guarda en la colletion assignment
   createdAt: { type: Date, default: Date.now },
   buyAt: { type: Date },
   amortizationAd: { type: Date },
   authoritation: String, // uuid de la collection authoritation para ver quién aprobó la compra
   efficiency: [Number], //Valoración de los employe que han tenido asignado el product
-  company: String
+  company: String,
+  idemployee: { type: String, default: null }
 });
 
 module.exports = mongoose.model('Product', ProductSchema);
