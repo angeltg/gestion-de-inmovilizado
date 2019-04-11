@@ -1,0 +1,35 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="form-group">
+    
+        <label for="inputfullName">Nombre</label>
+        <input type="text" id="inputfullName" class="form-control" placeholder="Nombre" formControlName="fullName"/> 
+        <div *ngIf="registerForm.get('fullName').invalid && registerForm.get('fullName').dirty">
+      
+        <small id="fullNameHelp" class="form-text text-muted alert">Campo obligatorio </small>
+        </div>
+      </div>
+      
+  <div class="form-group">
+
+    <label for="inputEmail">Email</label>
+    <app-form-control [control]="registerForm.get('fullName')">
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email"/> 
+  </app-form-control>
+    
+  </div>
+  <div class="form-group">
+    <label for="inputCompany">Company</label>
+    <app-form-control [control]="registerForm.get('fullName')">  
+    <input type="text" id="inputCompany" class="form-control" placeholder="Company" formControlName="company" /> 
+  </app-form-control>
+  
+  </div>
+  <div class="form-group">
+    <label for="inputPassword">Password</label>
+    <app-form-control [control]="registerForm.get('fullName')">
+    <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" >
+  </app-form-control>
+     </div>
+
+  <button class="btn btn-primary">Enviar</button>
+</form>

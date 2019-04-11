@@ -15,11 +15,11 @@ app.use(bodyParser.json());
  */
 app.use((req, res, next) => {
   const accessControlAllowMethods = [
-    // fill the methods
+    'GET,PUT,POST,DELETE'
   ];
 
   const accessControlAllowHeaders = [
-    // fill the headers
+    'Content-Type'
   ];
 
   res.setHeader('Access-Control-Allow-Origin', '*');

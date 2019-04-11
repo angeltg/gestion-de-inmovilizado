@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <app-form-control [control]="loginForm.get('email')">
+    <input type="email" class="form-control" placeholder="Email" formControlName="email" id="exampleInputEmail1"/> 
+    </app-form-control>
+    <!-- <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').dirty">
+  
+    <small id="emailHelp" class="form-text text-muted alert">Campo obligatorio </small>
+    </div> -->
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <app-form-control [control]="loginForm.get('password')">
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password" >
+    </app-form-control>
+    
+    <!-- <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').dirty">
+    <small class="form-text text-muted alert">Campo obligatorio </small>
+    </div> -->
+  </div>
+   <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
