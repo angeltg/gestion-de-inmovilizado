@@ -1,10 +1,10 @@
 <div>
   <ul>
     <li [class.selected]="isRegisterFormVisible">
-      <a appPreventDefault href="" (click)="toggleForm()">Register</a>
+      <a appPreventDefault href="" (click)="toggleForm(true)">Register</a>
     </li>
     <li [class.selected]="!isRegisterFormVisible">
-      <a appPreventDefault href="" (click)="toggleForm()">Login</a>
+      <a appPreventDefault href="" (click)="toggleForm(false)">Login</a>
     </li>
   </ul>
 

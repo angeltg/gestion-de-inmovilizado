@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxsModule } from '@ngxs/store';
+import { AuthState } from './store/auth.state';
 
 
 import { AuthRoutingModule } from './auth-routing.module';
@@ -16,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
     AuthRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxsModule.forFeature([AuthState])
   ],
   exports: [ LoginComponent, RegisterComponent ]
 })
