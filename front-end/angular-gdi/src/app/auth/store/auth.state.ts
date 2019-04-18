@@ -1,7 +1,16 @@
 import { State, Store, StateContext, Action } from '@ngxs/store';
 import { Auth } from '../auth.models';
 import { AuthService } from '../services/auth.service';
-import { Login, LoginSuccess, LoginFailed } from './auth.actions';
+import { 
+  Login, 
+  LoginSuccess, 
+  LoginFailed,
+  Register,
+  RegisterSuccess,
+  RegisterFailed 
+} from './auth.actions';
+import { Navigate } from '@ngxs/router-plugin';
+import { tap, catchError } from 'rxjs/operators';
 
 @State<Auth>({
   name: 'auth',
@@ -12,24 +21,35 @@ import { Login, LoginSuccess, LoginFailed } from './auth.actions';
 export class AuthState {
   constructor(private store: Store, private authService: AuthService) {}
 
-  @Action(Login)
+  @Action(Login, {cancelUncompleted: true})
   login({ dispatch }: StateContext<Auth>, action: Login) {
-    this.authService
-      .login(action.login)
-      .subscribe(
-        data => dispatch(new LoginSuccess(data)),
-        error => dispatch(new LoginFailed(error.error))
-      );
+    return this.authService
+      .login(action.login).pipe(
+        tap(data => dispatch(new LoginSuccess(data))),
+        catchError(error => dispatch(new LoginFailed(error.error)))
+      )
   }
 
   @Action(LoginSuccess)
   loginSuccess(
-    { patchState }: StateContext<Auth>,
+    { patchState, dispatch }: StateContext<Auth>,
     { loginResponse }: LoginSuccess
   ) {
     patchState({ ...loginResponse });
+    dispatch(new Navigate(['/wall']));
   }
 
-  @Action([LoginFailed])
+  @Action(Register)
+  register({ dispatch }: StateContext<Auth>, action: Register){
+    return this.authService.register(action.register).pipe(
+      tap(() => dispatch(new RegisterSuccess())),
+      catchError(error => dispatch(new RegisterFailed(error.error)))
+    );
+  }
+
+  @Action(RegisterSuccess)
+  RegisterSuccess(ctx: StateContext<Auth>){}
+
+  @Action([LoginFailed, RegisterFailed])
   error(ctx: StateContext<Auth>, { errors }: any) {}
 }

@@ -8,12 +8,12 @@
     </li>
   </ul>
 
-  <div class="register-form" *ngIf="isRegisterFormVisible">
+  <div class="register-form" *ngIf="!isRegisterFormVisible">
     <p>Register</p>
     <app-register></app-register>
     <!-- sn-register-form -->
   </div>
-  <div class="login-form" *ngIf="!isRegisterFormVisible">
+  <div class="login-form" *ngIf="isRegisterFormVisible">
     <p>Login</p>
     <app-login></app-login> 
     <!-- sn-login-form -->

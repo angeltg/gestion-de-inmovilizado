@@ -18,3 +18,10 @@ export interface LoginResponse{
   refreshToken: string;
   accessToken: string;
 }
+
+export interface RegisterReuqest{
+  fullName: string,
+  email: string,
+  password: string,
+  company: string
+}

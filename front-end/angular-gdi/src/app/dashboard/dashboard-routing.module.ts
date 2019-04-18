@@ -1,10 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+import { DashboardComponent } from './containers/dashboard/dashboard.component';
+import { WallComponent } from './containers/wall/wall.component';
+import { MyAccountComponent } from './containers/my-account/my-account.component';
 
 const routes: Routes = [{
-  path: 'dashboard',
-  component: DashboardComponent
+  path: '',
+  component: DashboardComponent,
+  children : [
+    {
+      path: 'wall',
+      component: WallComponent
+    },
+    {
+      path: 'my-account',
+      component: MyAccountComponent
+    }
+  ]
 }];
 
 @NgModule({
