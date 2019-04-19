@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxsModule } from '@ngxs/store';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.component';
@@ -10,6 +11,7 @@ import { DashboardFooterComponent } from './components/dashboard-footer/dashboar
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { WallComponent } from './containers/wall/wall.component';
 import { MyAccountComponent } from './containers/my-account/my-account.component';
+import { ProductState } from './store/products.state';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MyAccountComponent } from './containers/my-account/my-account.component
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxsModule.forFeature([ProductState])
   ]
 })
 export class DashboardModule { }

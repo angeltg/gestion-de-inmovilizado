@@ -19,7 +19,7 @@ app.use((req, res, next) => {
   ];
 
   const accessControlAllowHeaders = [
-    'Content-Type'
+    'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
   ];
 
   res.setHeader('Access-Control-Allow-Origin', '*');
