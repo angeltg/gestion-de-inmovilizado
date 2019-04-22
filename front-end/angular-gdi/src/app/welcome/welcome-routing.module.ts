@@ -8,17 +8,22 @@ const routes: Routes = [
     path: '',
     redirectTo: 'welcome',
     pathMatch: 'full'
-  },
- {
-  path: '',
-  component: WelcomeComponent,
-  children: [
-    {
-      path: 'welcome',
-      component: WelcomeComponent
-    }
-  ]
-}
+   },
+   {
+          path: 'welcome',
+           component: WelcomeComponent
+     }
+   //,
+  // {
+  //   path: '',
+  //   component: SiteLayoutComponent,
+  //   children: [
+  //     {
+  //       path: 'welcome',
+  //       component: WelcomeComponent
+  //     }
+  //   ]
+  // }
 ];
 
 @NgModule({

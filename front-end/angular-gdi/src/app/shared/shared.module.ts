@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 import { SiteLayoutComponent } from './components/site-layout/site-layout.component';
 import { SiteLayoutHeaderComponent } from './components/site-layout-header/site-layout-header.component';
 import { SiteLayoutFooterComponent } from './components/site-layout-footer/site-layout-footer.component';
-import { ClickPreventDafaultDirective } from './directives/click-prevent-dafault.directive';
+import { ClickPreventDefaultDirective } from './directives/click-prevent-dafault.directive';
 import { IfDirective } from './directives/if.directive';
 import { FormComponent } from './components/forms/form.component';
 import { FormControlComponent } from './components/forms/form-control-components';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 
@@ -17,8 +18,8 @@ import { FormControlComponent } from './components/forms/form-control-components
     SiteLayoutComponent, 
     SiteLayoutHeaderComponent, 
     SiteLayoutFooterComponent, 
-    ClickPreventDafaultDirective, 
-    IfDirective, FormComponent,FormControlComponent],
+    ClickPreventDefaultDirective, 
+    IfDirective, FormComponent,FormControlComponent, PageNotFoundComponent],
   imports: [
     CommonModule, RouterModule
   ],
@@ -26,7 +27,7 @@ import { FormControlComponent } from './components/forms/form-control-components
     SiteLayoutComponent,
     SiteLayoutFooterComponent,
     SiteLayoutHeaderComponent,
-    ClickPreventDafaultDirective,
+    ClickPreventDefaultDirective,
     IfDirective,
     FormComponent,
     FormControlComponent

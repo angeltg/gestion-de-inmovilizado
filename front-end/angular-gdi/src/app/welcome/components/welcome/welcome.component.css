@@ -1,0 +1,10 @@
+
+article > header {
+  text-align: center;
+}
+article > header > h1 {
+  font-size: 3 rem;
+}
+main {
+  letter-spacing: 0.08rem;
+}

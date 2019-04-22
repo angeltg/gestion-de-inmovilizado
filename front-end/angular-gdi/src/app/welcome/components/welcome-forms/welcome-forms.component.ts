@@ -9,7 +9,7 @@ export class WelcomeFormsComponent {
 
   isRegisterFormVisible= true;
 
-toggleForm(isRegisterClick: boolean){
+ toggleForm(isRegisterClick: boolean){
 
     if(
       (isRegisterClick && this.isRegisterFormVisible) ||

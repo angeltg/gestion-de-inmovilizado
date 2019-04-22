@@ -1,3 +1,7 @@
-<p>
-  wall works!
-</p>
+<app-publisher></app-publisher>
+Listado de productos
+<ng-container *ngFor="let item of (products$ | async)">
+<app-product [product]="item"></app-product> 
+</ng-container>
+
+

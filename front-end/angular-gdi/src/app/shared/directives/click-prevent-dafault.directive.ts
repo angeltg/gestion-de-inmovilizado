@@ -1,10 +1,15 @@
-import { Directive } from '@angular/core';
+import { Directive, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appClickPreventDafault]'
+  selector: '[appPreventDafault]'
 })
-export class ClickPreventDafaultDirective {
 
-  constructor() { }
+export class ClickPreventDefaultDirective {
 
+  @HostListener('click', ['$event'])
+  onclick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  
 }

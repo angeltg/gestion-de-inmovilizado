@@ -12,6 +12,8 @@ import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { WallComponent } from './containers/wall/wall.component';
 import { MyAccountComponent } from './containers/my-account/my-account.component';
 import { ProductState } from './store/products.state';
+import { PublisherComponent } from './components/publisher/publisher.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ProductState } from './store/products.state';
     DashboardNavComponent,
     DashboardNavTabComponent,
     WallComponent,
-    MyAccountComponent
+    MyAccountComponent,
+    PublisherComponent,
+    ProductComponent
   ],
   imports: [
     CommonModule,
