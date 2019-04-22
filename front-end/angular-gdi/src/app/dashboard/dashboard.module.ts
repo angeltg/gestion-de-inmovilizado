@@ -12,8 +12,10 @@ import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { WallComponent } from './containers/wall/wall.component';
 import { MyAccountComponent } from './containers/my-account/my-account.component';
 import { ProductState } from './store/products.state';
+import { EmployeeState } from './store/employees.state';
 import { PublisherComponent } from './components/publisher/publisher.component';
 import { ProductComponent } from './components/product/product.component';
+import { EmployeeComponent } from './components/employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,14 @@ import { ProductComponent } from './components/product/product.component';
     WallComponent,
     MyAccountComponent,
     PublisherComponent,
-    ProductComponent
+    ProductComponent,
+    EmployeeComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     FontAwesomeModule,
-    NgxsModule.forFeature([ProductState])
+    NgxsModule.forFeature([ProductState, EmployeeState])
   ]
 })
 export class DashboardModule { }

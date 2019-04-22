@@ -31,11 +31,7 @@ export class ProductState {
     { setState }: StateContext<ProductCollection>,
     { products }: GetProducsSuccess
   ){
-    // const orderedProducts = products.sort((p1,p2) => {
-    //   return p2.createdAt - p1.createdAt;
-    // });
-   // const orderedProducts = products;
-   // console.log(products);
+   
     setState(
       Array.from(products).reduce((draft, product) => {
         draft[product._id] = product;

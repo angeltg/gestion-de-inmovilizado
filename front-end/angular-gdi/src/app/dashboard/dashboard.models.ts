@@ -1,7 +1,10 @@
 import { Auth } from '../auth/auth.models';
 
+export interface EmployeeCollection{
+  [key: string]: EmployeeResponse;
+}
 
-export interface Employee {
+export interface EmployeeResponse {
 	firstName: string;
 	secondName: string;
 	email: string;
