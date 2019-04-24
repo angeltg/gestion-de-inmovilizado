@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
-import { EmployeeResponse } from '../../dashboard.models';
+import { Employee } from '../../dashboard.models';
 import { GetEmployees } from '../../store/employee.action';
 import { EmployeeState } from '../../store/employees.state';
 import { Observable } from 'rxjs';
@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 export class ProductComponent implements OnInit {
 
 
-  @Select(EmployeeState.getEmployee) employees$: Observable<EmployeeResponse[]>;
+  @Select(EmployeeState.getEmployee) employees$: Observable<Employee[]>;
 
   @Input() product;
   @Input() index;

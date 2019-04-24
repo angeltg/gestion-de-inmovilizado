@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxsModule } from '@ngxs/store';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.component';
@@ -41,6 +42,7 @@ import { AltaEmployeesComponent } from './components/alta-employees/alta-employe
     CommonModule,
     DashboardRoutingModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
     NgxsModule.forFeature([ProductState, EmployeeState])
   ],
   exports:[

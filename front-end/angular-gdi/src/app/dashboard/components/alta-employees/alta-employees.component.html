@@ -1,3 +1,29 @@
-<p>
-  alta-employees works!
-</p>
+<form [formGroup]="employeeForm" (ngSubmit)="pushEmployee()">
+    <div class="form-group">
+      <label for="inputName">Nombre</label>
+      <input type="text" id="inputFirstName" class="form-control" placeholder="Nombre" formControlName="firstName"/>     
+    </div>
+    <div class="form-group">
+      <label for="inputName">Apellidos</label>
+      <input type="text" id="inputSecondName" class="form-control" placeholder="Apellidos" formControlName="secondName"/>     
+    </div>
+    <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email"/> 
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" >
+    </div>
+    <div class="form-group">
+        <label for="inputPhone">Móvil</label>
+        <input type="text" id="inputPhone" class="form-control" placeholder="Número de móvil" formControlName="phone"/>     
+    </div>
+    <div class="form-group">
+        <label for="inputName">Roll</label>
+        <input type="text" id="inputRoll" class="form-control" placeholder="Manager, Purchasing, Accountant, Technical, Employee" formControlName="phone"/>     
+    </div>
+   
+
+  <button class="btn btn-primary">Enviar</button>
+</form>

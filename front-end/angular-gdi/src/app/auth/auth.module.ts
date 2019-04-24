@@ -25,6 +25,6 @@ import { JwtInterceptor } from './services/jwt.interceptor';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
-  exports: [ LoginComponent, RegisterComponent ]
+  exports: [ LoginComponent, RegisterComponent]
 })
 export class AuthModule { }

@@ -52,6 +52,8 @@ function saveProduct(req, res, next) {
   product.category = req.body.category;
   product.price = req.body.price;
   product.company = company;
+  product.description = req.body.description;
+
 
   product.save((err, productStored) => {
     if (err) res.status(500).send({ messaje: `Error en el servidor ${err}` });

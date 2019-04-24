@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { EmployeeResponse } from '../dashboard.models';
+import { Employee } from '../dashboard.models';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -11,8 +11,22 @@ export class EmployeesService {
 
   constructor(private http: HttpClient) { }
 
-getWallEmployees(): Observable<EmployeeResponse[]>{
-  return this.http.get<EmployeeResponse[]>(`${environment.apiBaseUrl}/employee`);
+getWallEmployees(): Observable<Employee[]>{
+  return this.http.get<Employee[]>(`${environment.apiBaseUrl}/employee`);
+}
+addEmployee(
+  firstName: string,
+  secondName: string,
+  email: string,
+  password: string,
+  phone: string,
+  roll: string,
+  userId?: string): Observable<Employee> {
+  const path = userId ? `/${userId}` : '';
+
+  return this.http.post<Employee>(`${environment.apiBaseUrl}/employee${path}`, {
+    firstName, secondName, email, password, phone, roll
+  });
 }
 
 }

@@ -1,4 +1,4 @@
-<form >
+<form [formGroup]="productForm" (ngSubmit)="pushProduct()">
     <div class="form-group">
     
         <label for="inputName">Nombre</label>
@@ -10,7 +10,7 @@
 
     <label for="inputPrice">Precio</label>
     
-    <input type="text" id="inputPrice" class="form-control" placeholder="Precio" formControlName="price"/> 
+    <input type="number" id="inputPrice" class="form-control" placeholder="Precio" formControlName="price"/> 
     
   </div>
   <div class="form-group">

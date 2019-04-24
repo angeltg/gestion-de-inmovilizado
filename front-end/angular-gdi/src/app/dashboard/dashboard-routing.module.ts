@@ -7,6 +7,8 @@ import { MyAccountComponent } from './containers/my-account/my-account.component
 import { AuthGuard } from '../auth/services/auth.guard';
 
 import { AltaProductsComponent } from './components/alta-products/alta-products.component';
+import { AltaEmployeesComponent } from './components/alta-employees/alta-employees.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -20,6 +22,10 @@ const routes: Routes = [{
     {
       path: 'alta-bienes',
       component: AltaProductsComponent
+    },
+    {
+      path: 'alta-empleados',
+      component: AltaEmployeesComponent
     },
     {
       path: 'my-account',

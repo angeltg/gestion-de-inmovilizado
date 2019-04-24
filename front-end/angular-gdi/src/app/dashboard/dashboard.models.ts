@@ -1,10 +1,7 @@
 import { Auth } from '../auth/auth.models';
 
-export interface EmployeeCollection{
-  [key: string]: EmployeeResponse;
-}
 
-export interface EmployeeResponse {
+export interface Employee {
 	firstName: string;
 	secondName: string;
 	email: string;
@@ -14,17 +11,29 @@ export interface EmployeeResponse {
   _id: string;
 }
 
-export interface ProductCollection{
-  [key: string]: ProductResponse;
+export interface EmployeeRequest {
+  firstName: string;
+  secondName: string;
+  email: string;
+  password: string;
+  phone: string;
+  roll: string;
 }
 
-export interface ProductResponse{
+export interface Product{
   name: string;
   price: number;
   category: string;
   createdAt: number;
   idemployee: string;
   _id: string;
+}
+export interface ProductRequest {
+  name: string;
+  price: number;
+  category: string;
+  description: string;
+  serialNumber: string;
 }
 
 export interface Assignment{
