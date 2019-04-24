@@ -23,6 +23,7 @@ export interface ProductResponse{
   price: number;
   category: string;
   createdAt: number;
+  idemployee: string;
   _id: string;
 }
 

@@ -10,7 +10,7 @@ const ProductSchema = Schema({
   model: String,
   description: String,
   revision: [String], // uuid de la colletion revision. Para guardar un histórico de revision
-  category: [String], // Las categorías están en la colletion category
+  category: [String],
   price: Number,
   amortization: Number, // La amortización pendiente se calcula en función de la fecha de amortización
   createdAt: { type: Date, default: Date.now },

@@ -1,7 +1,29 @@
-<p>
-El producto, con todos sus datos.
-</p>
-<p>
-  Necesitamos un botón para asignar a los empleados.
-</p>
-
+    <tr class="thead-dark" *ngIf="index===0">
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Fecha</th>
+      <th scop="col">Asignado a</th>
+    </tr>
+    <tr> 
+      <th scope="row">{{product._id}}</th>
+      <td>{{product.name}}</td>
+      <td>{{product.category}}</td>
+      <td>{{product.price | number }} €</td>
+      <td>{{product.createdAt | userFriendlyDate }}</td>
+      <td> 
+           
+          <div class="form-group">
+                      
+              <select ng-model="form.model" class="form-control" id="employeeSelect">
+                  <option value="" >Sin asignar</option>
+                  <!-- item._id == product.idemployee -->
+                  <option value="{{ item._id}}" 
+                  *ngFor="let item of (employees$ | async)" >
+                    {{ item.firstName}}
+                  </option>    
+              </select>
+          </div>
+      </td>
+    </tr>

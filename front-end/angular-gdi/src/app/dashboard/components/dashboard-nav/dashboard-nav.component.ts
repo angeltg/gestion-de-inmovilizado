@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-dashboard-nav',
   templateUrl: './dashboard-nav.component.html',
-  styles: []
+  styleUrls: []
 })
 export class DashboardNavComponent {
 

@@ -33,7 +33,7 @@ export class EmployeeState {
     { employees }: GetEmployeesSuccess
   ){
     setState(
-      Array.from(employees).reduce((draft, employee) => {
+      employees['employees'].reduce((draft, employee) => {
         draft[employee._id] = employee;
         return draft;
       }, {})

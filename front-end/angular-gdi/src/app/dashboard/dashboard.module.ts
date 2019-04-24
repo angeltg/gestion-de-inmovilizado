@@ -16,6 +16,10 @@ import { EmployeeState } from './store/employees.state';
 import { PublisherComponent } from './components/publisher/publisher.component';
 import { ProductComponent } from './components/product/product.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { UserFriendlyDatePipe } from '../shared/pipes/user-friendly-date.pipe';
+import { AltaProductsComponent } from './components/alta-products/alta-products.component';
+import { AltaEmployeesComponent } from './components/alta-employees/alta-employees.component';
+
 
 @NgModule({
   declarations: [
@@ -28,13 +32,19 @@ import { EmployeeComponent } from './components/employee/employee.component';
     MyAccountComponent,
     PublisherComponent,
     ProductComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    UserFriendlyDatePipe,
+    AltaProductsComponent,
+    AltaEmployeesComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     FontAwesomeModule,
     NgxsModule.forFeature([ProductState, EmployeeState])
+  ],
+  exports:[
+    UserFriendlyDatePipe
   ]
 })
 export class DashboardModule { }

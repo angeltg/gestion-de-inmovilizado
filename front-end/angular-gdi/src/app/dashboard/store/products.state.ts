@@ -14,6 +14,7 @@ export class ProductState {
 
   @Selector()
   static getProduct(state: ProductCollection){
+    
     return Object.values(state);
   }
   constructor(private store: Store, private productService: ProductsService){}
@@ -31,14 +32,15 @@ export class ProductState {
     { setState }: StateContext<ProductCollection>,
     { products }: GetProducsSuccess
   ){
-   
     setState(
-      Array.from(products).reduce((draft, product) => {
+      products['products'].reduce((draft, product) => {
         draft[product._id] = product;
         return draft;
       }, {})
     );
   }
+
+  
 
   @Action([GetProductsFailed])
   errors(ctx: StateContext<ProductCollection>, { errors }: GetProductsFailed){
