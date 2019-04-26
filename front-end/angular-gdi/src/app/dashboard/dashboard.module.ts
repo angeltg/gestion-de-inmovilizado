@@ -20,6 +20,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { UserFriendlyDatePipe } from '../shared/pipes/user-friendly-date.pipe';
 import { AltaProductsComponent } from './components/alta-products/alta-products.component';
 import { AltaEmployeesComponent } from './components/alta-employees/alta-employees.component';
+import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AltaEmployeesComponent } from './components/alta-employees/alta-employe
     EmployeeComponent,
     UserFriendlyDatePipe,
     AltaProductsComponent,
-    AltaEmployeesComponent
+    AltaEmployeesComponent,
+    ListEmployeeComponent
   ],
   imports: [
     CommonModule,

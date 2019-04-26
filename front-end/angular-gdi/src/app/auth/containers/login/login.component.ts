@@ -22,6 +22,7 @@ export class LoginComponent {
 
   login() {
     if(this.loginForm.valid){
+      
         this.store.dispatch(new Login(this.loginForm.value));     
     }
   }

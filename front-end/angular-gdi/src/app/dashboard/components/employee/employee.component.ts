@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngxs/store';
+
 
 @Component({
   selector: 'app-employee',
@@ -7,11 +9,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EmployeeComponent implements OnInit {
 
+  
   @Input() employee;
-
-  constructor() { }
+  @Input() index;
+  
+  
+  constructor(private store: Store) { }
 
   ngOnInit() {
   }
 
+  
 }

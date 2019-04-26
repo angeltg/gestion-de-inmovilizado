@@ -1,0 +1,10 @@
+<table class="table">
+  <h4> Listado de empleados de la empresa</h4>
+    <ng-container *ngFor="let item of (employees$ | async); let i = index; let items">
+       <span style="display: none"> {{ i+1}} </span>
+         <app-employee  [employee]="item" [index]="i" >      
+         </app-employee>       
+   </ng-container>
+   
+   <p *ngIf='(employees$ | async)?.length === 0'>Por ahora no has dado de alta ningún empleado de la empresa</p>
+</table>

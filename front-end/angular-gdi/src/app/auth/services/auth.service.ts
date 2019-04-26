@@ -14,7 +14,7 @@ export class AuthService {
 
     login({ email, password} : LoginRequest ){
       return this.http.post<LoginResponse>(
-        `${environment.apiBaseUrl}/employee/login`, {
+        `${environment.apiBaseUrl}/account/login`, {
         email,
         password
       })

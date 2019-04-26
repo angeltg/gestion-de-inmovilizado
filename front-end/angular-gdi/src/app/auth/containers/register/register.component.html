@@ -1,3 +1,8 @@
+<div class="container  border-top-0 border">
+  
+  <div class="row p-3">
+    
+
 <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="form-group">
     
@@ -18,9 +23,9 @@
     
   </div>
   <div class="form-group">
-    <label for="inputCompany">Company</label>
+    <label for="inputCompany">Compañía</label>
     <app-form-control [control]="registerForm.get('fullName')">  
-    <input type="text" id="inputCompany" class="form-control" placeholder="Company" formControlName="company" /> 
+    <input type="text" id="inputCompany" class="form-control" placeholder="Compañía" formControlName="company" /> 
   </app-form-control>
   
   </div>
@@ -33,3 +38,5 @@
 
   <button class="btn btn-primary">Enviar</button>
 </form>
+</div>
+</div>

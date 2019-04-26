@@ -52,12 +52,12 @@ export class EmployeeState {
     const currentUser = this.store.selectSnapshot(state => state.auth);
 
     return this.employeeService.addEmployee(
-      employeeRequest.email,
       employeeRequest.firstName,
+      employeeRequest.secondName,
+      employeeRequest.email,
       employeeRequest.password,
       employeeRequest.phone,
-      employeeRequest.roll,
-      employeeRequest.secondName 
+      employeeRequest.roll 
       ).pipe(
       tap(employee =>
         dispatch(

@@ -18,7 +18,7 @@ export class WallComponent {
 
   ngOnInit() {
     this.store.dispatch(new GetProducts());
-    this.products$.subscribe(products => console.log('PRODUCTS!', products ));
+   // this.products$.subscribe(products => console.log('PRODUCTS!', products ));
     
   }
 

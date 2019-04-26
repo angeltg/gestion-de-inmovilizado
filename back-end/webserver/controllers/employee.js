@@ -31,7 +31,7 @@ function getEmployees(req, res, next) {
   }
   //Solo mostramos los empleados si pertenecen a la compañía del user logeado 
   const employeeId = req.params.id;
-
+  console.log(`La compaía es ${company}`);
   Employee.find({ company }, (err, employees) => {
     if (err) res.status(500).send(`Error en el servidor ${err}`);
     if (!employees) res.status(404).send(`No existen employees`);

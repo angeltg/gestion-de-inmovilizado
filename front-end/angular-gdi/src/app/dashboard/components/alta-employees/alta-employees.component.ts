@@ -20,7 +20,7 @@ export class AltaEmployeesComponent implements OnInit {
     email: ['', [Validators.required, MailValidator]],
     password: ['', [Validators.required]],
     phone: ['', [Validators.required]],
-    roll: ['', [Validators.required]]
+    roll: ['', []]
   });
 
 

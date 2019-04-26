@@ -1,6 +1,11 @@
+<div class="container  border-top-0 border">
+  
+<div class="row p-3">
+  
+
 <form [formGroup]="loginForm" (ngSubmit)="login()">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <label for="exampleInputEmail1">Email</label>
     <app-form-control [control]="loginForm.get('email')">
     <input type="email" class="form-control" placeholder="Email" formControlName="email" id="exampleInputEmail1"/> 
     </app-form-control>
@@ -21,3 +26,5 @@
   </div>
    <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
+</div>
+</div>

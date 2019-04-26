@@ -16,14 +16,15 @@
            
           <div class="form-group">
                       
-              <select ng-model="form.model" class="form-control" id="employeeSelect">
+              <select ng-model="form.model" class="form-control" id="employeeSelect" (change)="onChange($event.target.value,product._id)">
                   <option value="" >Sin asignar</option>
                   <!-- item._id == product.idemployee -->
                   <option value="{{ item._id}}" 
                   *ngFor="let item of (employees$ | async)" >
-                    {{ item.firstName}}
+                    {{ item.firstName }} {{ item.secondName }}
                   </option>    
               </select>
           </div>
       </td>
     </tr>
+

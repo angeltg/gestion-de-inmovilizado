@@ -1,17 +1,14 @@
-<app-publisher></app-publisher>
+<!-- <app-publisher></app-publisher> -->
 
 
 <table class="table">
-   
-     
+   <h4> Listado de bienes de la empresa</h4>
     <ng-container *ngFor="let item of (products$ | async); let i = index">
         <span style="display: none"> {{i+1}} </span>
           <app-product  [product]="item" [index]="i" >      
           </app-product>       
-
     </ng-container>
-         
-   
+    <p *ngIf='(products$ | async)?.length === 0' >Por ahora no has dado de alta ningún bien de la empresa</p>
 </table>
 
 

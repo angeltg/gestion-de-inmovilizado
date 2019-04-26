@@ -7,17 +7,29 @@ import { Component } from '@angular/core';
 })
 export class WelcomeFormsComponent {
 
-  isRegisterFormVisible= true;
+  isRegisterFormVisible = true;
+  registerClass='active'; 
+  loginClass='';
 
- toggleForm(isRegisterClick: boolean){
-
-    if(
+  toggleForm(isRegisterClick: boolean) {
+    if (
       (isRegisterClick && this.isRegisterFormVisible) ||
-      (isRegisterClick && !this.isRegisterFormVisible)
-    ){
+      (!isRegisterClick && !this.isRegisterFormVisible)
+    ) { 
       return;
     }
-  this.isRegisterFormVisible = !this.isRegisterFormVisible;
-}
+    if (this.registerClass !='') {
+      this.loginClass='active';
+      this.registerClass='';
+    }
+    else {
+      this.registerClass='active';
+      this.loginClass='';
+    }; 
+    
+   
+    
+    this.isRegisterFormVisible = !this.isRegisterFormVisible;
+  }
 
 }

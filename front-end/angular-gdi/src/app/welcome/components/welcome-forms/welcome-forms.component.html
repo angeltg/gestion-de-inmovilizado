@@ -5,18 +5,18 @@
   <ul class="nav nav-tabs">
       
     <li class="nav-item" [class.selected]="isRegisterFormVisible">
-      <a class="nav-link" appPreventDefault href="" (click)="toggleForm(false)">Register</a>
+      <a class="nav-link" [ngClass]="registerClass" appPreventDefault href="" (click)="toggleForm(true)">Register</a>
     </li>
     <li class="nav-item" [class.selected]="!isRegisterFormVisible">
-      <a class="nav-link active" appPreventDefault href="" (click)="toggleForm(true)">Login</a>
+      <a class="nav-link" [ngClass]="loginClass" appPreventDefault href="" (click)="toggleForm(false)">Login</a>
     </li>
   </ul>
 
-  <div class="register-form" *ngIf="!isRegisterFormVisible">
+  <div class="register-form" *ngIf="isRegisterFormVisible">
     <app-register></app-register>
     
   </div>
-  <div class="login-form" *ngIf="isRegisterFormVisible">
+  <div class="login-form" *ngIf="!isRegisterFormVisible">
     <app-login></app-login> 
     
   </div>
