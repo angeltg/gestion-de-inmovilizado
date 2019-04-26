@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 
 
 @Component({
-  selector: 'app-product',
+  selector: '[app-product]',
   templateUrl: './product.component.html',
   styles: []
 })
@@ -19,7 +19,7 @@ export class ProductComponent implements OnInit {
   @Input() product;
   @Input() index;
   
-  
+
   constructor(private store: Store) { }
 
   ngOnInit() {

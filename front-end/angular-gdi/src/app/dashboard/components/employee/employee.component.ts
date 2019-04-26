@@ -3,7 +3,7 @@ import { Store } from '@ngxs/store';
 
 
 @Component({
-  selector: 'app-employee',
+  selector: '[app-employee]',
   templateUrl: './employee.component.html',
   styles: []
 })

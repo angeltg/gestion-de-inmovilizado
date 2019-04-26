@@ -29,7 +29,7 @@ import { environment } from '../environments/environment';
       disabled: environment.production
     }),
     NgxsLoggerPluginModule.forRoot({ logger: console, collapsed: false }),
-    NgxsLoggerPluginModule.forRoot(),
+    NgxsRouterPluginModule.forRoot(),
     NgxsModule.forRoot([],{
       developmentMode: !environment.production
     }),

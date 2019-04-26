@@ -1,15 +1,26 @@
 <!-- <app-publisher></app-publisher> -->
 
-
+<h4> Listado de bienes de la empresa</h4>
+   
 <table class="table">
-   <h4> Listado de bienes de la empresa</h4>
+  <thead>
+   <tr class="thead-dark">
+    <th scope="col"></th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Categoria</th>
+    <th scope="col">Precio</th>
+    <th scope="col">Fecha</th>
+    <th scop="col">Asignado a</th>
+  </tr>
+  </thead>
+  <tbody>
     <ng-container *ngFor="let item of (products$ | async); let i = index">
-        <span style="display: none"> {{i+1}} </span>
-          <app-product  [product]="item" [index]="i" >      
-          </app-product>       
+        <!-- <span style="display: none"> {{i+1}} </span> -->
+      <tr app-product [product]="item" [index]="i" class="clearfix"></tr>       
     </ng-container>
-    <p *ngIf='(products$ | async)?.length === 0' >Por ahora no has dado de alta ningún bien de la empresa</p>
+  </tbody>
 </table>
+<p *ngIf='(products$ | async)?.length === 0' >Por ahora no has dado de alta ningún bien de la empresa</p>
 
 
 
