@@ -59,6 +59,8 @@ async function saveEmployee(req, res, next) {
 
   const employeeData = { ...req.body };
 
+  console.log(`Me envía eso ${employeeData.roll}`);
+
   //Solo el manager tiene permisos para crear employees
   if (roll != 'Manager') {
     res.status(401).send({ messaje: 'Acceso no autorizado' });

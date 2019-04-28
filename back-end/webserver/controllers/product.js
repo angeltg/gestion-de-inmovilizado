@@ -36,7 +36,6 @@ function saveProduct(req, res, next) {
   const { claims } = req;
   const { company, roll } = claims;
 
-  console.log(req, roll, company);
 
   //Si no tiene permisos no pueden crear productos
   if ((roll === 'Employee') || (roll === 'Accountant')) {

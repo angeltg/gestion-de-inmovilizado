@@ -14,13 +14,16 @@ import { AddEmployee, AddEmployeeSuccess } from '../../store/employee.action';
 })
 export class AltaEmployeesComponent implements OnInit {
 
+  rolles: string[] = ['Employee', 'Technical','Accountant', 'Purchasing', 'Manager'];
+  default: string = 'Employee';
+
   employeeForm = this.fb.group({
     firstName: ['',[Validators.required]],
     secondName: ['', [Validators.required]],
     email: ['', [Validators.required, MailValidator]],
     password: ['', [Validators.required]],
     phone: ['', [Validators.required]],
-    roll: ['', []]
+    roll:[this.default,[Validators.required]]
   });
 
 

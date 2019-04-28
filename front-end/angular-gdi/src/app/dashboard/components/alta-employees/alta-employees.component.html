@@ -20,9 +20,13 @@
         <input type="text" id="inputPhone" class="form-control" placeholder="Número de móvil" formControlName="phone"/>     
     </div>
     <div class="form-group">
-        <label for="inputRoll">Roll</label>
-        <input type="text" id="inputRoll" class="form-control" placeholder="Manager, Purchasing, Accountant, Technical, Employee" formControlName="roll"/>     
+        <label for="selectRoll">Roll</label>
+        <select  name="selectRoll" id="selectRoll" class="form-control" formControlName="roll">
+            <option *ngFor="let roll of rolles" [value]="roll" >{{ roll }}</option>
+        </select>
+       
     </div>
+    
    
 
   <button class="btn btn-primary">Enviar</button>
