@@ -4,6 +4,7 @@ export interface Auth {
   accessToken: string;
   refreshToken: string;
   expiresIn: number;
+  company: string;
 }
 
 export interface LoginRequest {
@@ -17,6 +18,7 @@ export interface LoginResponse{
   expiresIn: number;
   refreshToken: string;
   accessToken: string;
+  company: string;
 }
 
 export interface RegisterReuqest{

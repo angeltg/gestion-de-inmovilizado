@@ -1,6 +1,9 @@
 <!-- <app-publisher></app-publisher> -->
 
-<h4> Listado de bienes de la empresa</h4>
+<h4> Listado de bienes de la empresa
+<app-publisher [user]="currentUser$ | async">
+</app-publisher>
+</h4>
    
 <table class="table">
   <thead>

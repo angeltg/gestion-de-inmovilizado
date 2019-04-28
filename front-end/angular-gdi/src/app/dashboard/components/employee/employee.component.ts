@@ -14,6 +14,7 @@ export class EmployeeComponent implements OnInit {
   @Input() index;
   
   
+  
   constructor(private store: Store) { }
 
   ngOnInit() {

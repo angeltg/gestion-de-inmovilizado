@@ -4,6 +4,7 @@ import { Employee } from '../../dashboard.models';
 import { GetEmployees } from '../../store/employee.action';
 import { EmployeeState } from '../../store/employees.state';
 import { Observable } from 'rxjs';
+import { AddAssignment } from '../../store/assignment.action';
 
 
 @Component({
@@ -27,8 +28,9 @@ export class ProductComponent implements OnInit {
    // this.employees$.subscribe(employees => console.log('EMPLOYEES!', employees ));
   }
 
-  onChange(deviceIdEmployee, deviceIdProduct) {
-    console.log( deviceIdEmployee,deviceIdProduct);
+  onChange(idEmployee, idProduct) {
+    console.log( idEmployee,idProduct);
     //Enviar los datos a la API
+    this.store.dispatch(new AddAssignment({ idEmployee, idProduct }));
   }
 }

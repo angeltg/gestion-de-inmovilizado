@@ -14,6 +14,7 @@ import { WallComponent } from './containers/wall/wall.component';
 import { MyAccountComponent } from './containers/my-account/my-account.component';
 import { ProductState } from './store/products.state';
 import { EmployeeState } from './store/employees.state';
+import { AssignmentState } from './store/assignment.state';
 import { PublisherComponent } from './components/publisher/publisher.component';
 import { ProductComponent } from './components/product/product.component';
 import { EmployeeComponent } from './components/employee/employee.component';
@@ -45,7 +46,7 @@ import { ListEmployeeComponent } from './components/list-employee/list-employee.
     DashboardRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    NgxsModule.forFeature([ProductState, EmployeeState])
+    NgxsModule.forFeature([ProductState, EmployeeState, AssignmentState])
   ],
   exports:[
     UserFriendlyDatePipe

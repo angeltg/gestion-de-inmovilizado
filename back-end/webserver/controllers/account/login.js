@@ -57,6 +57,7 @@ async function login(req, res, next) {
     const token = jwt.sign(payloadJwt, process.env.AUTH_JWT_SECRET, { expiresIn: jwtTokenExpiration });
     const response = {
       accessToken: token,
+      company: userProfile.company,
       expiresIn: jwtTokenExpiration,
     };
     res.status(200).json(response);

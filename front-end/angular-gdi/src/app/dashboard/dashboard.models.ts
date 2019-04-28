@@ -38,7 +38,12 @@ export interface ProductRequest {
 
 export interface Assignment{
   idEmployee: string;
-  idProdutc: string;
+  idProduct: string;
   description: string;
   createdAt: number;
+}
+
+export interface AssignmentRequest{
+  idEmployee: string;
+  idProduct: string;
 }

@@ -4,6 +4,8 @@ import { GetProducts } from '../../store/product.action';
 import { ProductState } from '../../store/products.state';
 import { Product } from '../../dashboard.models';
 import { Observable } from 'rxjs';
+import { AuthState } from '../../../auth/store/auth.state';
+import { Auth } from '../../../auth/auth.models';
 
 @Component({
   selector: 'app-wall',
@@ -13,6 +15,9 @@ import { Observable } from 'rxjs';
 export class WallComponent {
 
   @Select(ProductState.getProduct) products$: Observable<Product[]>;
+
+  @Select(AuthState) currentUser$: Observable<Auth>;
+  
   
   constructor(private store: Store) { }
 
