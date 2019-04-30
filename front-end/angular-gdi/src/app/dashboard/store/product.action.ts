@@ -29,3 +29,20 @@ export class AddProductFailed {
   static readonly type = '[Products] AddProductFailed';
   constructor(public errors: Error[]) {}
 }
+
+export class DelProduct {
+  static readonly type = '[Protucts] DelProduct';
+  constructor(public productId: string) {}
+}
+
+export class DelProductSuccess {
+  static readonly type = '[Product] Del Product Success';
+  constructor(
+    public productId: string
+    ) {}
+}
+
+export class DelProductFailed {
+  static readonly type = '[Product] Del Product Failed';
+  constructor(public errors: Error[]) {}
+}

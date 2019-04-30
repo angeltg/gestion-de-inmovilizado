@@ -13,12 +13,17 @@ import { AddProduct, AddProductSuccess } from '../../store/product.action';
 })
 export class AltaProductsComponent implements OnInit {
 
+  categories: string[] = ['Car', 'PC','Phone', 'Laptop', 'Visa', 'Other'];
+  default: string = 'Other';
+
+ 
   productForm = this.fb.group({
     name: ['',[Validators.required]],
     price: ['', [Validators.required]],
     serialNumber: ['', [Validators.required]],
-    category: ['', [Validators.required]],
-    description: ['', [Validators.required]]
+    category: [this.default, [Validators.required]],
+    description: ['', [Validators.required]],
+    amortizationAt: ['',[]]
   });
 
 constructor( 

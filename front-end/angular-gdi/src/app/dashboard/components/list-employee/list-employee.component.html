@@ -10,12 +10,13 @@
         <th scope="col">Email</th>
         <th scope="col">Móvil</th>
         <th scop="col">Roll</th>
+        <th scop="col">Eliminar</th>
     </tr>
     </thead>
     <tbody>
     <ng-container *ngFor="let item of (employees$ | async); let i = index">
         <span style="display: none"> {{ i+1}} </span> 
-         <tr app-employee  [employee]="item" [index]="i" ></tr>       
+         <tr app-employee id="line{{item._id}}" [employee]="item" [index]="i" ></tr>       
    </ng-container>
   </tbody>
    

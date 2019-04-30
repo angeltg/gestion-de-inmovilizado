@@ -29,9 +29,10 @@ function getEmployees(req, res, next) {
   if (roll != 'Manager') {
     res.status(401).send({ messaje: 'Acceso no autorizado' });
   }
+
   //Solo mostramos los empleados si pertenecen a la compañía del user logeado 
   const employeeId = req.params.id;
-  console.log(`La compaía es ${company}`);
+
   Employee.find({ company }, (err, employees) => {
     if (err) res.status(500).send(`Error en el servidor ${err}`);
     if (!employees) res.status(404).send(`No existen employees`);
@@ -44,7 +45,8 @@ function getEmployees(req, res, next) {
 function updateEmployee(req, res, next) {
 
   const { claims } = req;
-  const { company, roll, id } = claims;
+  const { company, roll } = claims;
+
 
   //Solo el manager y el propio employee tiene permisos para modificar employee
   if (roll != 'Manager' && id != req.params.id) {
@@ -60,17 +62,20 @@ function updateEmployee(req, res, next) {
   })
 }
 
-function deleteEmployee(res, req, next) {
+function deleteEmployee(req, res, next) {
+
+
   const { claims } = req;
   const { company, roll } = claims;
 
-  //Solo el manager tiene permisos para crear employees
+  //Solo el manager tiene permisos para borrar employees
   if (roll != 'Manager') {
     res.status(401).send({ messaje: 'Acceso no autorizado' });
   }
 
   let employeeId = req.params.id;
-  Employee.deleteOne({ _id: employeeId }, (err) => {
+  Employee.deleteOne({ _id: employeeId, company }, (err) => {
+
     if (err) res.status(500).send(`Error en el servidor ${err}`);
     res.status(200).send(`Este employee ha sido borrado`);
   })

@@ -29,4 +29,9 @@ addEmployee(
   });
 }
 
+
+delEmployee(employeeId: string) {
+  return this.http.delete(`${environment.apiBaseUrl}/employee/${employeeId}`, {});
+}
+
 }

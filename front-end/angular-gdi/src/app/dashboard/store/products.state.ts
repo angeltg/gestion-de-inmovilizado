@@ -7,7 +7,10 @@ import {
   GetProductsFailed,
   AddProduct, 
   AddProductFailed, 
-  AddProductSuccess 
+  AddProductSuccess, 
+  DelProduct,
+  DelProductFailed,
+  DelProductSuccess
 } from './product.action';
 import { tap, catchError } from 'rxjs/operators';
 
@@ -77,8 +80,27 @@ export class ProductState {
   }
 
   
+  @Action(DelProduct, { cancelUncompleted: true })
+  delProduct({ dispatch, getState }: StateContext<Product[]>, { productId }: DelProduct) {
+   // const product = getState().find(p => p._id === productId);
+   
+  //  if (product) {
+        return this.productService.delProduct(productId).pipe(
+          tap(() => dispatch(new DelProductSuccess(productId))),
+          catchError(error => dispatch(new DelProductFailed(error.error)))
+        );
+  
+  //  }
+  }
 
-  @Action([GetProductsFailed,AddProductFailed])
+  @Action(DelProductSuccess)
+  delProcutSuccess(
+    { getState, setState }: StateContext<Product[]>,
+    { productId }: DelProductSuccess
+  ) {  }
+
+
+  @Action([GetProductsFailed,AddProductFailed, DelProductFailed])
   error({ dispatch }: StateContext<Product[]>, { errors }: any) {
     console.log(errors);
   }
@@ -87,6 +109,12 @@ export class ProductState {
   // }
 
 }
+
+
+
+
+
+
 
 
 

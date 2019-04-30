@@ -29,3 +29,20 @@ export class AddEmployeeFailed {
   static readonly type = '[Employees] AddEmployeeFailed';
   constructor(public errors: Error[]) {}
 }
+
+export class DelEmployee {
+  static readonly type = '[Employees] Del Employee';
+  constructor(public employeeId: string) {}
+}
+
+export class DelEmployeeSuccess {
+  static readonly type = '[Employees] Del Employee Success';
+  constructor(
+    public employeeId: string
+    ) {}
+}
+
+export class DelEmployeeFailed {
+  static readonly type = '[Employee] Del Employee Failed';
+  constructor(public errors: Error[]) {}
+}

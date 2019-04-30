@@ -28,6 +28,10 @@ addProduct(name: string,
   });
 }
 
+delProduct(productId: string) {
+  return this.http.delete(`${environment.apiBaseUrl}/product/${productId}`, {});
+}
+
 Assignment(
   idEmployee: string,
   idProduct: string,

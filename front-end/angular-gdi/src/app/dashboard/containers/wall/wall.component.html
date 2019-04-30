@@ -10,16 +10,18 @@
    <tr class="thead-dark">
     <th scope="col"></th>
     <th scope="col">Nombre</th>
-    <th scope="col">Categoria</th>
+    <th scope="col">Categoría</th>
     <th scope="col">Precio</th>
-    <th scope="col">Fecha</th>
-    <th scop="col">Asignado a</th>
+    <th scope="col">Amortización pendiente</th>
+    <th scope="col">Fecha de alta</th>
+    <th scope="col">Asignado a</th>
+    <th scope="col">Eliminar</th>
   </tr>
   </thead>
   <tbody>
     <ng-container *ngFor="let item of (products$ | async); let i = index">
         <!-- <span style="display: none"> {{i+1}} </span> -->
-      <tr app-product [product]="item" [index]="i" class="clearfix"></tr>       
+      <tr app-product id="line{{item._id}}" [product]="item" [index]="i" class="clearfix"></tr>       
     </ng-container>
   </tbody>
 </table>

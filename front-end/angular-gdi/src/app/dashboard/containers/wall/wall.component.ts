@@ -14,6 +14,7 @@ import { Auth } from '../../../auth/auth.models';
 })
 export class WallComponent {
 
+
   @Select(ProductState.getProduct) products$: Observable<Product[]>;
 
   @Select(AuthState) currentUser$: Observable<Auth>;

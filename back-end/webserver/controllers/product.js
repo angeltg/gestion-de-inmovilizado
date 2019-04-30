@@ -13,23 +13,6 @@ function getProduct(req, res, next) {
   })
 }
 
-function getProducts(req, res, next) {
-
-  const { claims } = req;
-  const { company, roll } = claims;
-  console.log(`Company ${company}`);
-  //Si no tiene permisos no puede ver el producto
-  if (roll === 'Employee') {
-    res.status(401).send({ messaje: 'Acceso no autorizado' });
-  }
-  //Solo mostramos los productos de la compañía del user logeado
-  Product.find({ company }, (err, products) => {
-    if (err) res.status(500).send(`Error en el servidor ${err}`);
-    if (!products) res.status(404).send(`No existen productos`);
-    res.status(200).send({ products });
-
-  })
-}
 
 function saveProduct(req, res, next) {
 
@@ -52,6 +35,7 @@ function saveProduct(req, res, next) {
   product.price = req.body.price;
   product.company = company;
   product.description = req.body.description;
+  product.amortizationAt = req.body.amortizationAt;
 
 
   product.save((err, productStored) => {
@@ -81,11 +65,12 @@ function updateProduct(req, res, next) {
 }
 
 function deleteProduct(req, res, next) {
+
   const { claims } = req;
   const { company, roll } = claims;
 
-  //Si no tiene permisos no puede modificar el producto
-  if (roll === 'Employee') {
+  //Si no tiene permisos no puede borrar el producto
+  if (roll != 'Manager') {
     res.status(401).send({ messaje: 'Acceso no autorizado' });
   }
 
@@ -99,7 +84,6 @@ function deleteProduct(req, res, next) {
 
 module.exports = {
   getProduct,
-  getProducts,
   saveProduct,
   updateProduct,
   deleteProduct

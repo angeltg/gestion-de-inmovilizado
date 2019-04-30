@@ -7,7 +7,10 @@ import {
   GetEmployeesFailed, 
   AddEmployee, 
   AddEmployeeFailed, 
-  AddEmployeeSuccess 
+  AddEmployeeSuccess,
+  DelEmployee,
+  DelEmployeeFailed,
+  DelEmployeeSuccess
 } from './employee.action';
 import { tap, catchError } from 'rxjs/operators';
 
@@ -79,8 +82,29 @@ export class EmployeeState {
   }
 
   
+  @Action(DelEmployee, { cancelUncompleted: true })
+  delEmployee({ dispatch, getState }: StateContext<Employee[]>, { employeeId }: DelEmployee) {
+   // const product = getState().find(p => p._id === productId);
+   
+  //  if (product) {
+        return this.employeeService.delEmployee(employeeId).pipe(
+          tap(() => dispatch(new DelEmployeeSuccess(employeeId))),
+          catchError(error => dispatch(new DelEmployeeFailed(error.error)))
+        );
+  
+  //  }
+  }
 
-  @Action([GetEmployeesFailed,AddEmployeeFailed])
+  @Action(DelEmployeeSuccess)
+  delEmployeeSuccess(
+    { getState, setState }: StateContext<Employee[]>,
+    { employeeId }: DelEmployeeSuccess
+  ) {  }
+
+
+
+
+  @Action([GetEmployeesFailed,AddEmployeeFailed, DelEmployee])
   errors(ctx: StateContext<Employee[]>, { errors }: any){
     console.log(errors);
   }
