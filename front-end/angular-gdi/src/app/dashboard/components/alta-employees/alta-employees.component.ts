@@ -39,6 +39,7 @@ ngOnInit() {
     .subscribe(() => this.employeeForm.reset());
 }
 pushEmployee(){
+  
   if (!this.employeeForm.valid){
     this.markFormGroupAsTouched(this.employeeForm);
     return;
@@ -46,6 +47,7 @@ pushEmployee(){
   this.sotre.dispatch(new AddEmployee(this.employeeForm.value));
 }
 markFormGroupAsTouched(FormGroup: FormGroup){
+ 
   Object.values(FormGroup.controls).forEach(control =>
     control.markAsTouched()
     );

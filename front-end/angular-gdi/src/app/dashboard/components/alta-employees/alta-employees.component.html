@@ -1,33 +1,36 @@
 <form [formGroup]="employeeForm" (ngSubmit)="pushEmployee()">
-    <div class="form-group">
-      <label for="inputName">Nombre</label>
-      <input type="text" id="inputFirstName" class="form-control" placeholder="Nombre" formControlName="firstName"/>     
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label for="inputName">Nombre</label>
+            <input type="text" id="inputFirstName" class="form-control" placeholder="Nombre" formControlName="firstName"/>     
+        </div>
+        <div class="col-md-6">
+            <label for="inputName">Apellidos</label>
+            <input type="text" id="inputSecondName" class="form-control" placeholder="Apellidos" formControlName="secondName"/>     
+        </div>
     </div>
-    <div class="form-group">
-      <label for="inputName">Apellidos</label>
-      <input type="text" id="inputSecondName" class="form-control" placeholder="Apellidos" formControlName="secondName"/>     
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label for="inputEmail">Email</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email"/> 
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" >
+        </div>
     </div>
-    <div class="form-group">
-        <label for="inputEmail">Email</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email"/> 
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label for="inputPhone">Móvil</label>
+            <input type="text" id="inputPhone" class="form-control" placeholder="Número de móvil" formControlName="phone"/>     
+       </div>
+        <div class="col-md-6">
+            <label for="selectRoll">Roll</label>
+            <select  name="selectRoll" id="selectRoll" class="form-control" formControlName="roll">
+                <option *ngFor="let roll of rolles" [value]="roll" >{{ roll }}</option>
+            </select>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" >
-    </div>
-    <div class="form-group">
-        <label for="inputPhone">Móvil</label>
-        <input type="text" id="inputPhone" class="form-control" placeholder="Número de móvil" formControlName="phone"/>     
-    </div>
-    <div class="form-group">
-        <label for="selectRoll">Roll</label>
-        <select  name="selectRoll" id="selectRoll" class="form-control" formControlName="roll">
-            <option *ngFor="let roll of rolles" [value]="roll" >{{ roll }}</option>
-        </select>
-       
-    </div>
-    
-   
-
-  <button class="btn btn-primary">Enviar</button>
+      
+  <button class="btn btn-primary mt-2">Enviar</button>
 </form>

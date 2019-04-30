@@ -24,6 +24,7 @@ export class ProductComponent implements OnInit {
   constructor(private store: Store) { }
    
   ngOnInit() {
+    
     this.store.dispatch(new GetEmployees());
    // this.employees$.subscribe(employees => console.log('EMPLOYEES!', employees ));
   }
@@ -36,7 +37,6 @@ export class ProductComponent implements OnInit {
   
   delClick(){
    
-
     this.store.dispatch(new DelProduct(this.product._id));
     //Remove with css the tr
     let elemt = document.getElementById('line'+this.product._id);

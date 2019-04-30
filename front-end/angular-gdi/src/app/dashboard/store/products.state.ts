@@ -59,7 +59,9 @@ export class ProductState {
       productRequest.price, 
       productRequest.category, 
       productRequest.description,
-      productRequest.serialNumber).pipe(
+      productRequest.serialNumber,
+      productRequest.amortizationAt
+      ).pipe(
       tap(product =>
         dispatch(
           new AddProductSuccess({

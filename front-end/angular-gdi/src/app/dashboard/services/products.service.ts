@@ -20,11 +20,12 @@ addProduct(name: string,
   price: number,
   category: string,
   description: string,
-  serialNumber: string, userId?: string): Observable<Product> {
+  serialNumber: string,
+  amortizationAt:string, userId?: string): Observable<Product> {
   const path = userId ? `/${userId}` : '';
 
   return this.http.post<Product>(`${environment.apiBaseUrl}/product${path}`, {
-    name, price, category, description, serialNumber
+    name, price, category, description, serialNumber, amortizationAt
   });
 }
 

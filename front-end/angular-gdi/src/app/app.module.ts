@@ -15,7 +15,22 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { AboutModule } from './about/about.module';
 
 import { environment } from '../environments/environment';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatDatepickerModule, MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material';
+import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 
+//create our cost var with the information about the format that we want
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MM YYYY',
+    dateA11yLabel: 'DD/MM/YYYY',
+    monthYearA11yLabel: 'MM YYYY',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -36,9 +51,16 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     WelcomeModule,
     DashboardModule,
-    AboutModule
+    AboutModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es_ES' }, //you can change useValue
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

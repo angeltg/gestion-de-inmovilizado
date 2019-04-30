@@ -3,13 +3,18 @@
     <label for="inputName">Nombre</label>
     <input type="text" id="inputName" class="form-control" placeholder="Nombre" formControlName="name"/> 
   </div>
-  <div class="form-group">
-    <label for="inputPrice">Precio</label>
-    <input type="number" id="inputPrice" class="form-control" placeholder="Precio" formControlName="price"/>  
-  </div>
-  <div class="form-group">
-    <label for="inputAmortizationAt">Fecha de amortización</label>
-    <input type="number" id="inputAmortizationAt" class="form-control" placeholder="YYYY-MM-DD" formControlName="amortizationAt"/>  
+  <div class="form-group row">
+   
+      <div class="col-md-6">
+          <label for="inputPrice">Precio</label>
+          <input type="number" id="inputPrice" class="form-control" placeholder="Precio" formControlName="price"/>
+      </div>
+      <div class="col-md-6">
+          <label for="inputAmortizationAt">Fecha de amortización </label> <br>
+          <input matinput id="inputAmortizationAt" [min]="minDate" [matDatepicker]="myDatepicker" formControlName="amortizationAt" >
+          <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #myDatepicker></mat-datepicker>
+      </div>   
   </div>
   <div class="form-group">
     <label for="inputSerialNumber">Número de serie</label>

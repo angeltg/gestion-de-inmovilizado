@@ -22,6 +22,10 @@ import { UserFriendlyDatePipe } from '../shared/pipes/user-friendly-date.pipe';
 import { AltaProductsComponent } from './components/alta-products/alta-products.component';
 import { AltaEmployeesComponent } from './components/alta-employees/alta-employees.component';
 import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
+import { MatDatepickerModule } from '@angular/material';
+import { MomentDateModule } from '@angular/material-moment-adapter';
+
+
 
 
 @NgModule({
@@ -46,7 +50,9 @@ import { ListEmployeeComponent } from './components/list-employee/list-employee.
     DashboardRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    NgxsModule.forFeature([ProductState, EmployeeState, AssignmentState])
+    NgxsModule.forFeature([ProductState, EmployeeState, AssignmentState]),
+    MatDatepickerModule,
+    MomentDateModule
   ],
   exports:[
     UserFriendlyDatePipe

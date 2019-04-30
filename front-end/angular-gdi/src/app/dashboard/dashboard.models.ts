@@ -26,6 +26,7 @@ export interface Product{
   category: string;
   createdAt: number;
   idemployee: string;
+  amortiztionAt: string;
   _id: string;
 }
 export interface ProductRequest {
@@ -34,6 +35,7 @@ export interface ProductRequest {
   category: string;
   description: string;
   serialNumber: string;
+  amortizationAt: string;
 }
 
 export interface Assignment{
