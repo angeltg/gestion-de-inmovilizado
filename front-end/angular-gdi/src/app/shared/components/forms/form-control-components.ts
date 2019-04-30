@@ -18,7 +18,11 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
         <p class="form-text text-muted alert" *ngIf="control.hasError('malformedMail')">
            El email no es correcto
         </p>
-      </ng-container>
+        <p class="form-text text-muted alert" *ngIf="control.hasError('malformedPassword')">
+           La password debe contener más 3 caractéres, mayúsculas, minúsculas y numeros.
+        </p>
+     
+        </ng-container>
     </div>
   `
 })

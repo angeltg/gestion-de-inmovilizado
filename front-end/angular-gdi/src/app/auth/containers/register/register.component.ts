@@ -5,6 +5,7 @@ import { Store, Actions, ofAction } from '@ngxs/store';
 import { AuthService } from '../../../auth/services/auth.service';
 import { MailValidator } from '../../validators/mail.validators';
 import { Register, RegisterSuccess } from '../../store/auth.actions';
+import { PasswordValidator } from '../../validators/password.validators';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
     registerForm = this.fb.group({
       fullName: ['',[Validators.required]],
       email: ['', [Validators.required, MailValidator]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, PasswordValidator]],
       company: ['', [Validators.required]]
     });
 
