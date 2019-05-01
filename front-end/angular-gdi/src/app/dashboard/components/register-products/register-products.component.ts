@@ -8,11 +8,11 @@ import { AddProduct, AddProductSuccess } from '../../store/product.action';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-alta-products',
-  templateUrl: './alta-products.component.html',
+  selector: 'register-alta-products',
+  templateUrl: './register-products.component.html',
   styles: []
 })
-export class AltaProductsComponent implements OnInit {
+export class RegisterProductsComponent implements OnInit {
 
   categories: string[] = ['Car', 'PC','Phone', 'Laptop', 'Visa', 'Other'];
   default: string = 'Other';
@@ -22,11 +22,11 @@ export class AltaProductsComponent implements OnInit {
 
   productForm = this.fb.group({
     name: ['',[Validators.required]],
-    price: ['', [Validators.required]],
+    price: [0, [Validators.required,Validators.min(0)]],
     serialNumber: ['', [Validators.required]],
     category: [this.default, [Validators.required]],
     description: ['', [Validators.required]],
-    amortizationAt: ['',[]]
+    amortizationAt: [this.minDate,[]]
   });
 
 constructor( 
@@ -52,8 +52,6 @@ pushProduct(){
     return;
   }
   //Cambiamos la fecha al formato YYYY-MM-DD
-  //let newDate = new Date(this.productForm.value.amortizationAt);
-  //let formatDate = moment(newDate).format("YYYY-MM-DD");
   this.productForm.value.amortizationAt = this.formatDate(this.productForm.value.amortizationAt);
 
   this.sotre.dispatch(new AddProduct(this.productForm.value));

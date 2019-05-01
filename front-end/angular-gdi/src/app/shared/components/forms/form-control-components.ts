@@ -10,18 +10,16 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
       <ng-content></ng-content>
 
       <ng-container
-        *ngIf="control.invalid && (control.dirty || control.touched)"
-      >
-        <p class="form-text text-muted alert" *ngIf="control.hasError('required')">
+        *ngIf="control.invalid && (control.dirty || control.touched)">
+        <h6 class="alert alert-danger" *ngIf="control.hasError('required')">
            Este campo es obligatorio
-        </p>
-        <p class="form-text text-muted alert" *ngIf="control.hasError('malformedMail')">
+        </h6>
+        <h6 class="alert alert-danger" *ngIf="control.hasError('malformedMail')">
            El email no es correcto
-        </p>
-        <p class="form-text text-muted alert" *ngIf="control.hasError('malformedPassword')">
-           La password debe contener más 3 caractéres, mayúsculas, minúsculas y numeros.
-        </p>
-     
+        </h6>
+        <h6 class="alert alert-danger" *ngIf="control.hasError('malformedPassword')">
+           Debe contener más 3 caractéres, mayúsculas, minúsculas y numeros
+        </h6>
         </ng-container>
     </div>
   `

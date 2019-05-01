@@ -5,14 +5,15 @@ import { Store, Actions, ofAction } from '@ngxs/store';
 
 
 import { MailValidator } from '../../../auth/validators/mail.validators';
+import { PasswordValidator } from '../../../auth/validators/password.validators';
 import { AddEmployee, AddEmployeeSuccess } from '../../store/employee.action';
 
 @Component({
-  selector: 'app-alta-employees',
-  templateUrl: './alta-employees.component.html',
+  selector: 'register-alta-employees',
+  templateUrl: './register-employees.component.html',
   styles: []
 })
-export class AltaEmployeesComponent implements OnInit {
+export class RegisterEmployeesComponent implements OnInit {
 
   rolles: string[] = ['Employee', 'Technical','Accountant', 'Purchasing', 'Manager'];
   default: string = 'Employee';
@@ -21,7 +22,7 @@ export class AltaEmployeesComponent implements OnInit {
     firstName: ['',[Validators.required]],
     secondName: ['', [Validators.required]],
     email: ['', [Validators.required, MailValidator]],
-    password: ['', [Validators.required]],
+    password: ['', [Validators.required, PasswordValidator]],
     phone: ['', [Validators.required]],
     roll:[this.default,[Validators.required]]
   });

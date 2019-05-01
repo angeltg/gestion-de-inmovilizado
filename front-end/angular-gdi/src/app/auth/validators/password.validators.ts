@@ -3,7 +3,7 @@ import { AbstractControl } from '@angular/forms';
 export function PasswordValidator(
   control: AbstractControl
 ): { [key: string]: boolean } {
-  const PASSWORD_REGEXP = /^[a-zA-Z0-9]{3,30}$/i;
+  const PASSWORD_REGEXP = /^[a-zA-Z0-9]{3,30}$/;
 
   if (
     control.value &&

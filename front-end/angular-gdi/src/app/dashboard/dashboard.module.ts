@@ -18,12 +18,15 @@ import { AssignmentState } from './store/assignment.state';
 import { PublisherComponent } from './components/publisher/publisher.component';
 import { ProductComponent } from './components/product/product.component';
 import { EmployeeComponent } from './components/employee/employee.component';
-import { UserFriendlyDatePipe } from '../shared/pipes/user-friendly-date.pipe';
-import { AltaProductsComponent } from './components/alta-products/alta-products.component';
-import { AltaEmployeesComponent } from './components/alta-employees/alta-employees.component';
+import { ProductFriendlyDatePipe } from '../shared/pipes/product-friendly-date.pipe';
+import { RegisterProductsComponent } from './components/register-products/register-products.component';
+import { RegisterEmployeesComponent } from './components/register-employees/register-employees.component';
 import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
 import { MatDatepickerModule } from '@angular/material';
 import { MomentDateModule } from '@angular/material-moment-adapter';
+import { SharedModule } from '../shared/shared.module';
+
+
 
 
 
@@ -40,9 +43,9 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
     PublisherComponent,
     ProductComponent,
     EmployeeComponent,
-    UserFriendlyDatePipe,
-    AltaProductsComponent,
-    AltaEmployeesComponent,
+    ProductFriendlyDatePipe,
+    RegisterProductsComponent,
+    RegisterEmployeesComponent,
     ListEmployeeComponent
   ],
   imports: [
@@ -52,10 +55,11 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
     ReactiveFormsModule,
     NgxsModule.forFeature([ProductState, EmployeeState, AssignmentState]),
     MatDatepickerModule,
-    MomentDateModule
+    MomentDateModule,
+    SharedModule
   ],
   exports:[
-    UserFriendlyDatePipe
+    ProductFriendlyDatePipe
   ]
 })
 export class DashboardModule { }

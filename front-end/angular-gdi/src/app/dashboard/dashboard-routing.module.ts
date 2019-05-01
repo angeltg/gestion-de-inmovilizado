@@ -6,8 +6,8 @@ import { WallComponent } from './containers/wall/wall.component';
 import { MyAccountComponent } from './containers/my-account/my-account.component';
 import { AuthGuard } from '../auth/services/auth.guard';
 
-import { AltaProductsComponent } from './components/alta-products/alta-products.component';
-import { AltaEmployeesComponent } from './components/alta-employees/alta-employees.component';
+import { RegisterProductsComponent } from './components/register-products/register-products.component';
+import { RegisterEmployeesComponent } from './components/register-employees/register-employees.component';
 import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
 
 
@@ -18,15 +18,15 @@ const routes: Routes = [{
   children : [
     {
       path: 'wall',
-      component: WallComponent
+      component: WallComponent // Muestra el listado de los productos
     },
     {
       path: 'alta-bienes',
-      component: AltaProductsComponent
+      component: RegisterProductsComponent
     },
     {
       path: 'alta-empleados',
-      component: AltaEmployeesComponent
+      component: RegisterEmployeesComponent
     },
     {
       path: 'listar-empleados',
