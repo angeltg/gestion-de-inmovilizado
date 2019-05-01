@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { faHandSpock } from '@fortawesome/free-solid-svg-icons';
+import { AuthState } from '../../../auth/store/auth.state';
+import { Observable } from 'rxjs';
+import { Auth } from '../../../auth/auth.models';
+import { Select } from '@ngxs/store';
 
 @Component({
   selector: 'app-dashboard-header',
@@ -8,6 +11,8 @@ import { faHandSpock } from '@fortawesome/free-solid-svg-icons';
 })
 export class DashboardHeaderComponent{
 
-  logo = faHandSpock;
+  @Select(AuthState) currentUser$: Observable<Auth>;
+  
+
 
 }

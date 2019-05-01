@@ -29,11 +29,46 @@ async function validateSchema(payload) {
   return Joi.validate(payload, schema);
 }
 
+function htmlEmailDesign(userData) {
+  let emailHtml = `
+   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>GdI</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body style="margin: 0; padding: 0;">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+        <td align="center" color="#004085" bgcolor="#b8daff" style="padding: 40px 0 30px 0; color: #004085">
+          <h1>GdI</h1>  
+          <h3>Gestión de Inmovilizado</h3>
+        </td>
+        </tr>
+        <tr>
+        <td align="center" style="padding: 40px 0 30px 0;">
+          <h2>¡Bienvenido!</h2>  
+          <p>Ya estás registrado en GdI, ahora solo te queda: <a href="${rute}/api/account/activate?verification_code=${userData.verificationCode}">Activar cuenta</a></p>
+          <p>Y podrás gestionar los bienes de tu empresa de la manera más rápida y eficaz.</p>
+        </td>
+        </tr>
+        <tr>
+        <td align="center" style="padding: 40px 0 30px 0;">
+          <p>GdI by Ángel Téllez</p>  
+        </td>
+        </tr>
+      </table>
+    </body>
+   </html>
+   `;
+  return emailHtml;
+}
 
 async function sedActivationEmail(userData) {
   // using SendGrid's v3 Node.js Library
   // https://github.com/sendgrid/sendgrid-nodejs
-  console.log(`${rute}/api/account/activate?verification_code=${userData.verificationCode}`);
+  //console.log(`${rute}/api/account/activate?verification_code=${userData.verificationCode}`);
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(mailKey);
   const msg = {
@@ -44,7 +79,8 @@ async function sedActivationEmail(userData) {
     },
     subject: 'Es hora de activar tu cuenta',
     text: `Ya estás registrado en nuestra web, ahora solo te queda:${rute}/api/account/activate?verification_code=${userData.verificationCode}`,
-    html: `Ya estás registrado en nuestra web, ahora solo te queda: <a href="${rute}/api/account/activate?verification_code=${userData.verificationCode}">Activar cuenta</a>`
+    html: htmlEmailDesign(userData)
+    //   html: `Ya estás registrado en nuestra web, ahora solo te queda: <a href="${rute}/api/account/activate?verification_code=${userData.verificationCode}">Activar cuenta</a>`
   };
   sgMail.send(msg);
 }
