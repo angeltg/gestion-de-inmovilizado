@@ -1,10 +1,8 @@
 <!-- <app-publisher></app-publisher> -->
 
-<h4> Listado de bienes de la empresa
-<app-publisher [user]="currentUser$ | async">
-</app-publisher>
-</h4>
-   
+<h4> Listado de bienes</h4>
+<div class="table-responsive" *ngIf='(products$ | async)?.length != 0'>     
+
 <table class="table">
   <thead>
    <tr class="thead-dark">
@@ -20,12 +18,12 @@
   </thead>
   <tbody>
     <ng-container *ngFor="let item of (products$ | async); let i = index">
-        <!-- <span style="display: none"> {{i+1}} </span> -->
       <tr app-product id="line{{item._id}}" [product]="item" [index]="i" class="clearfix"></tr>       
     </ng-container>
   </tbody>
 </table>
-<p *ngIf='(products$ | async)?.length === 0' >Por ahora no has dado de alta ningún bien de la empresa</p>
+</div>
+<p *ngIf='(products$ | async)?.length === 0' >No hay empleados dados de alta</p>
 
 
 

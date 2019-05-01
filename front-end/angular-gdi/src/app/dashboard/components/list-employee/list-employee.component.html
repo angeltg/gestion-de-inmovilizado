@@ -1,6 +1,5 @@
-<h4> Listado de empleados de la empresa <app-publisher [user]="currentUser$ | async">
-</app-publisher></h4>
- 
+<h4> Listado de empleados </h4>
+<div class="table-responsive" *ngIf='(employees$ | async)?.length != 0'>     
 <table class="table">
     <thead>
     <tr class="thead-dark">
@@ -21,4 +20,5 @@
   </tbody>
    
 </table>
-<p *ngIf='(employees$ | async)?.length === 0'>Por ahora no has dado de alta ningún empleado de la empresa</p>
+</div>
+<p *ngIf='(employees$ | async)?.length === 0'>No hay empleados dados de alta</p>
