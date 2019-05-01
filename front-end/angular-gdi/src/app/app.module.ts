@@ -5,19 +5,17 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-
-import { WelcomeModule } from './welcome/welcome.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { AboutModule } from './about/about.module';
-
-import { environment } from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatDatepickerModule, MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material';
 import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { WelcomeModule } from './welcome/welcome.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { AboutModule } from './about/about.module';
+import { environment } from '../environments/environment';
+import { ErrorModule } from './error/error.module';
 
 //create our cost var with the information about the format that we want
 export const MY_FORMATS = {
@@ -50,6 +48,7 @@ export const MY_FORMATS = {
     }),
     AppRoutingModule,
     WelcomeModule,
+    ErrorModule,
     DashboardModule,
     AboutModule,
     BrowserAnimationsModule,

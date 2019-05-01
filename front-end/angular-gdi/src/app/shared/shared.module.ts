@@ -10,6 +10,7 @@ import { IfDirective } from './directives/if.directive';
 import { FormComponent } from './components/forms/form.component';
 import { FormControlComponent } from './components/forms/form-control-components';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 
 
@@ -19,6 +20,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     SiteLayoutHeaderComponent, 
     SiteLayoutFooterComponent, 
     ClickPreventDefaultDirective, 
+    CapitalizePipe,
     IfDirective, FormComponent,FormControlComponent, PageNotFoundComponent],
   imports: [
     CommonModule, RouterModule
@@ -30,7 +32,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ClickPreventDefaultDirective,
     IfDirective,
     FormComponent,
-    FormControlComponent
+    FormControlComponent,
+    CapitalizePipe
   ]
 })
 export class SharedModule { }

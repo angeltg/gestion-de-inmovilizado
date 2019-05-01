@@ -13,7 +13,7 @@ import {
   DelEmployeeSuccess
 } from './employee.action';
 import { tap, catchError } from 'rxjs/operators';
-
+import { SetErrors } from 'src/app/error/store/error.actions';
 
 @State<Employee[]>({
   name: 'employees',
@@ -105,9 +105,11 @@ export class EmployeeState {
 
 
   @Action([GetEmployeesFailed,AddEmployeeFailed, DelEmployee])
-  errors(ctx: StateContext<Employee[]>, { errors }: any){
-    console.log(errors);
+  error({ dispatch }: StateContext<Employee[]>, { errors }: any) {
+    dispatch(new SetErrors(errors));
   }
+
+  
 
 }
 

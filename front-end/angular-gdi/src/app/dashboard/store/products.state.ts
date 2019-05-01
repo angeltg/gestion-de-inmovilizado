@@ -13,6 +13,7 @@ import {
   DelProductSuccess
 } from './product.action';
 import { tap, catchError } from 'rxjs/operators';
+import { SetErrors } from 'src/app/error/store/error.actions';
 
 
 @State<Product[]>({
@@ -104,11 +105,9 @@ export class ProductState {
 
   @Action([GetProductsFailed,AddProductFailed, DelProductFailed])
   error({ dispatch }: StateContext<Product[]>, { errors }: any) {
-    console.log(errors);
+    dispatch(new SetErrors(errors));
   }
-  // errors(ctx: StateContext<Product[]>, { errors }: GetProductsFailed){
-  //   console.log(errors);
-  // }
+  
 
 }
 

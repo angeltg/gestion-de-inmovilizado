@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { LoginRequest, LoginResponse } from '../auth.models';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,10 +32,6 @@ export class AuthService {
         })
       );
     }
-
-
-
-
 
     register ({ fullName, email, password, company}){
       return this.http.post(`${environment.apiBaseUrl}/account/create`,{
