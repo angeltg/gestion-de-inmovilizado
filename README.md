@@ -1,4 +1,4 @@
-﻿# GdI, gestion de inmovilizado
+﻿# GdI, Gestion de Inmovilizado
 
 Aplicación para la gestión del inmovilizado de la empresa. Back end en nodejs y front end en Agular. Base de datos en MongoDB.
 Proyecto final del bootcamp en Javascript de Hack a Bos.
@@ -17,7 +17,6 @@ Paso para la instalación de la aplicación:
 
 2. Crear un archivi .env en la carpeta back-end con los siguientes datos:
 
-#
 SERVER
 
 HTTP_SERVER_DOMAIN=
