@@ -1,4 +1,5 @@
-﻿# gestion-de-inmovilizado
+﻿# GdI, gestion de inmovilizado
+
 Aplicación para la gestión del inmovilizado de la empresa. Back end en nodejs y front end en Agular. Base de datos en MongoDB.
 Proyecto final del bootcamp en Javascript de Hack a Bos.
 
@@ -13,34 +14,39 @@ Los empleados está clasificados en función de su puesto. Contable, administrad
 Paso para la instalación de la aplicación:
 
 1- Descargar el proyecto de Github.
+
 2. Crear un archivi .env en la carpeta back-end con los siguientes datos:
+
 #
-# SERVER
-#
+SERVER
+
 HTTP_SERVER_DOMAIN=
+
 PORT=
 
-#
-# BBDD
-#
+
+BBDD
+
 MONGODB=
 
-#
-#JWT TOKEN
-#
+
+JWT TOKEN
+
 AUTH_JWT_SECRET=
 
-#
-#SENGRID
-#
+
+SENGRID
+
 SENDGRID_API_KEY=
 
-#
-#Expieration TOKEN
-#
+
+Expieration TOKEN
+
 AUTH_ACCESS_TOKEN_TTL=
 
 2- Arrancar mongodb en la carpeta back-end.
+
 3- Arrancar en la carpeta back-end el node con npm start.
+
 4- Arrancar en la carpeta front-end/angular-gdi.
  
