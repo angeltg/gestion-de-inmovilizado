@@ -7,7 +7,8 @@ import {
   LoginFailed,
   Register,
   RegisterSuccess,
-  RegisterFailed 
+  RegisterFailed,
+  Logout
 } from './auth.actions';
 import { Navigate } from '@ngxs/router-plugin';
 import { tap, catchError } from 'rxjs/operators';
@@ -37,6 +38,13 @@ export class AuthState {
   ) {
     patchState({ ...loginResponse });
     dispatch(new Navigate(['/wall']));
+  }
+
+  @Action(Logout)
+  logout({ setState, dispatch }: StateContext<Auth>) {
+    this.authService.logout();
+    setState(null);
+    dispatch(new Navigate(['/welcome']));
   }
 
   @Action(Register)

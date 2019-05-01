@@ -44,4 +44,8 @@ export class AuthService {
         company
       })
     }
+
+    logout() {
+      localStorage.removeItem('auth');
+    }
 }
