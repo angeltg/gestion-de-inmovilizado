@@ -10,6 +10,7 @@ const api = express.Router();
 
 api.get('/product', checkJwtToken, prodctListProduct.getProducts);
 api.get('/product/:id', checkJwtToken, productCtrl.getProduct);
+api.get('/product-category', checkJwtToken, productCtrl.getCategoryProduct);
 api.post('/product', checkJwtToken, productCtrl.saveProduct);
 api.put('/product/:id', checkJwtToken, productCtrl.updateProduct);
 api.delete('/product/:id', checkJwtToken, productCtrl.deleteProduct);

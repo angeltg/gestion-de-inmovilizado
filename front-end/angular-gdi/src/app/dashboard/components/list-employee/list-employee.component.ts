@@ -16,8 +16,9 @@ import { Auth } from '../../../auth/auth.models';
 
 export class ListEmployeeComponent implements OnInit {
 
-  @Select(EmployeeState.getEmployee) employees$: Observable<Employee[]>;
+  
 
+  @Select(EmployeeState.getEmployee) employees$: Observable<Employee[]>;
   
   @Select(AuthState) currentUser$: Observable<Auth>;
   
@@ -29,5 +30,6 @@ export class ListEmployeeComponent implements OnInit {
    // this.employees$.subscribe(employees => console.log('EMPLOYEES!', employees ));
     
   }
+  
 
 }

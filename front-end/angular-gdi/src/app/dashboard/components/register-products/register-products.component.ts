@@ -22,7 +22,7 @@ export class RegisterProductsComponent implements OnInit {
 
   productForm = this.fb.group({
     name: ['',[Validators.required]],
-    price: [0, [Validators.required,Validators.min(0)]],
+    price: ['', [Validators.required,Validators.min(0)]],
     serialNumber: ['', [Validators.required]],
     category: [this.default, [Validators.required]],
     description: ['', [Validators.required]],

@@ -4,6 +4,7 @@ import { Employee } from '../dashboard.models';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,5 +34,10 @@ addEmployee(
 delEmployee(employeeId: string) {
   return this.http.delete(`${environment.apiBaseUrl}/employee/${employeeId}`, {});
 }
+
+getEmployeeByRoll(){
+  return this.http.get(`${environment.apiBaseUrl}/employee-roll`);
+}
+
 
 }

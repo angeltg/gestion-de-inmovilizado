@@ -13,6 +13,57 @@ function getProduct(req, res, next) {
   })
 }
 
+//Array de empleados por roll
+function countCategoryProducts(products) {
+  //['Car', 'PC','Phone', 'Laptop', 'Visa', 'Other'];
+  let arrCategoryProducts = [0, 0, 0, 0, 0];
+
+  products.forEach(item => {
+    switch (item.category) {
+      case 'Car':
+        arrCategoryProducts[0]++;
+        break;
+      case 'PC':
+        arrCategoryProducts[1]++;
+        break;
+      case 'Phone':
+        arrCategoryProducts[2]++;
+        break;
+      case 'Laptop':
+        arrCategoryProducts[3]++;
+        break;
+      case 'Visa':
+        arrCategoryProducts[4]++;
+        break;
+      case 'Other':
+        arrCategoryProducts[5]++;
+        break;
+
+      default:
+        break;
+    }
+  });
+
+  return arrCategoryProducts;
+}
+
+//Recuperamos el número de productos por categoría
+function getCategoryProduct(req, res, next) {
+  const { claims } = req;
+  const { company, roll } = claims;
+  //Solo el manager tiene permisos para listar a los products
+  if (roll != 'Manager') {
+    res.status(401).send({ messaje: 'Acceso no autorizado' });
+  }
+
+  //Solo mostramos los products si pertenecen a la compañía del user logeado 
+  Product.find({ company }, (err, products) => {
+    if (err) res.status(500).send(`Error en el servidor ${err}`);
+    if (!products) res.status(404).send(`No existen bienes`);
+    const arrCategoryProducts = countCategoryProducts(products);
+    res.status(200).send({ arrCategoryProducts });
+  })
+}
 
 function saveProduct(req, res, next) {
 
@@ -86,5 +137,6 @@ module.exports = {
   getProduct,
   saveProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  getCategoryProduct
 }

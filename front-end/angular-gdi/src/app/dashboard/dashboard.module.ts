@@ -25,6 +25,9 @@ import { ListEmployeeComponent } from './components/list-employee/list-employee.
 import { MatDatepickerModule } from '@angular/material';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import { SharedModule } from '../shared/shared.module';
+import { GraficEmployeesComponent } from './components/grafic-employees/grafic-employees.component';
+import { ChartsModule } from 'ng2-charts';
+import { GraficProductsComponent } from './components/grafic-products/grafic-products.component';
 
 
 
@@ -46,7 +49,9 @@ import { SharedModule } from '../shared/shared.module';
     ProductFriendlyDatePipe,
     RegisterProductsComponent,
     RegisterEmployeesComponent,
-    ListEmployeeComponent
+    ListEmployeeComponent,
+    GraficEmployeesComponent,
+    GraficProductsComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +61,8 @@ import { SharedModule } from '../shared/shared.module';
     NgxsModule.forFeature([ProductState, EmployeeState, AssignmentState]),
     MatDatepickerModule,
     MomentDateModule,
-    SharedModule
+    SharedModule,
+    ChartsModule
   ],
   exports:[
     ProductFriendlyDatePipe

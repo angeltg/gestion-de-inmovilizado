@@ -40,7 +40,7 @@ export class EmployeeState {
   @Action(GetEmployeesSuccess)
   GetEmployeesSuccess(
     { setState }: StateContext<Employee[]>,
-    { employees }: GetEmployeesSuccess
+    { employees }: GetEmployeesSuccess,
   ){
     setState(
       employees['employees'].reduce((draft, employee) => {
@@ -95,16 +95,9 @@ export class EmployeeState {
   //  }
   }
 
-  @Action(DelEmployeeSuccess)
-  delEmployeeSuccess(
-    { getState, setState }: StateContext<Employee[]>,
-    { employeeId }: DelEmployeeSuccess
-  ) {  }
+ 
 
-
-
-
-  @Action([GetEmployeesFailed,AddEmployeeFailed, DelEmployee])
+  @Action([GetEmployeesFailed,AddEmployeeFailed, DelEmployeeFailed])
   error({ dispatch }: StateContext<Employee[]>, { errors }: any) {
     dispatch(new SetErrors(errors));
   }

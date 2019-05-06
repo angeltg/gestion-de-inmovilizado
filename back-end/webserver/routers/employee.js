@@ -11,6 +11,7 @@ const api = express.Router();
 
 api.get('/employee', checkJwtToken, employeeCtrl.getEmployees);
 api.get('/employee/:id', checkJwtToken, employeeCtrl.getEmployee);
+api.get('/employee-roll', checkJwtToken, employeeCtrl.getRollEmployees);
 api.post('/employee', checkJwtToken, employeeSave.saveEmployee);
 api.put('/employee/:id', checkJwtToken, employeeCtrl.updateEmployee);
 api.delete('/employee/:id', checkJwtToken, employeeCtrl.deleteEmployee);

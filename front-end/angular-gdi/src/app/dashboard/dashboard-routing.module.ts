@@ -9,6 +9,8 @@ import { AuthGuard } from '../auth/services/auth.guard';
 import { RegisterProductsComponent } from './components/register-products/register-products.component';
 import { RegisterEmployeesComponent } from './components/register-employees/register-employees.component';
 import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
+import { GraficEmployeesComponent } from './components/grafic-employees/grafic-employees.component';
+import { GraficProductsComponent } from './components/grafic-products/grafic-products.component';
 
 
 const routes: Routes = [{
@@ -31,6 +33,14 @@ const routes: Routes = [{
     {
       path: 'listar-empleados',
       component: ListEmployeeComponent
+    },
+    {
+      path: 'graficas-bienes',
+      component: GraficProductsComponent
+    },
+    {
+      path: 'graficas-empleados',
+      component: GraficEmployeesComponent
     },
     {
       path: 'my-account',

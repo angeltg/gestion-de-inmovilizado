@@ -44,4 +44,8 @@ Assignment(
   });
 }
 
+getProductByCategory(){
+  return this.http.get(`${environment.apiBaseUrl}/product-category`);
+}
+
 }

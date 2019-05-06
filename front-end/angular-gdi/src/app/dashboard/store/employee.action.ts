@@ -37,12 +37,11 @@ export class DelEmployee {
 
 export class DelEmployeeSuccess {
   static readonly type = '[Employees] Del Employee Success';
-  constructor(
-    public employeeId: string
-    ) {}
+  constructor(public employeeId: string) {}
 }
 
 export class DelEmployeeFailed {
   static readonly type = '[Employee] Del Employee Failed';
   constructor(public errors: Error[]) {}
 }
+
