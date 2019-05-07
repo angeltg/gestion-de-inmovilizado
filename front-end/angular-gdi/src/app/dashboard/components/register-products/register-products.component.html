@@ -1,4 +1,12 @@
-<form [formGroup]="productForm" (ngSubmit)="pushProduct()">
+<h3>Alta de bienes de la empresa</h3>
+<div id="register-form-message" class="row alert alert-primary m-auto" style="display: none;" >
+  <div class="col-12 text-center">
+      <h3 >El bien se ha creado correctamente</h3> 
+  </div>
+    
+</div>
+
+<form [formGroup]="productForm" (ngSubmit)="pushProduct()" id="register-form">
   <div class="form-group">
     <label for="inputName">Nombre</label>
       <app-form-control [control]="productForm.get('name')"> 

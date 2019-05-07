@@ -15,7 +15,7 @@
     </thead>
     <tbody>
     <ng-container *ngFor="let item of (employees$ | async); let i = index">
-        <span style="display: none"> {{ i+1}} </span> 
+        <span style="display: none"> {{ i+1 }} </span> 
          <tr app-employee id="line{{item._id}}" [employee]="item" [index]="i" ></tr>
    </ng-container>
   </tbody>

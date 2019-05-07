@@ -10,9 +10,14 @@
 <th scope="row">{{index}}</th>
 <td>{{product.name}}</td>
 <td>{{product.category}}</td>
-<td>{{product.price | number }}€</td>
-<td>{{product.amortization | number }}€</td>
-<td>{{product.createdAt | userFriendlyDate }}</td>
+<td class="text-right">{{product.price | number }}€</td>
+<td class="text-right">{{product.amortization | number }}€</td>
+<td class="text-center">  
+  <i class="material-icons text-danger" *ngIf="product.amortization===0"> star_border</i>
+  <i class="material-icons text-success" *ngIf="(product.price/2) < product.amortization"> star</i>
+  <i class="material-icons text-warning" *ngIf="(product.price/2) > product.amortization && product.amortization!=0"> star_half</i>
+</td>
+<td class="text-center">{{product.createdAt | userFriendlyDate }}</td>
 <td>
   <div class="form-group">
     {{product.idEmployee}}

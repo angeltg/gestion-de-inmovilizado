@@ -11,7 +11,6 @@ import { DashboardHeaderComponent } from './components/dashboard-header/dashboar
 import { DashboardFooterComponent } from './components/dashboard-footer/dashboard-footer.component';
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { WallComponent } from './containers/wall/wall.component';
-import { MyAccountComponent } from './containers/my-account/my-account.component';
 import { ProductState } from './store/products.state';
 import { EmployeeState } from './store/employees.state';
 import { AssignmentState } from './store/assignment.state';
@@ -27,10 +26,10 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
 import { SharedModule } from '../shared/shared.module';
 import { GraficEmployeesComponent } from './components/grafic-employees/grafic-employees.component';
 import { ChartsModule } from 'ng2-charts';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 import { GraficProductsComponent } from './components/grafic-products/grafic-products.component';
-
-
-
+import { ErrorModule } from '../error/error.module';
 
 
 
@@ -42,7 +41,6 @@ import { GraficProductsComponent } from './components/grafic-products/grafic-pro
     DashboardNavComponent,
     DashboardNavTabComponent,
     WallComponent,
-    MyAccountComponent,
     PublisherComponent,
     ProductComponent,
     EmployeeComponent,
@@ -62,7 +60,9 @@ import { GraficProductsComponent } from './components/grafic-products/grafic-pro
     MatDatepickerModule,
     MomentDateModule,
     SharedModule,
-    ChartsModule
+    ChartsModule,
+    ErrorModule,
+    MatCheckboxModule
   ],
   exports:[
     ProductFriendlyDatePipe

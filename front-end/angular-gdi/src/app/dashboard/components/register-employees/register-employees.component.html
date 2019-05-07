@@ -1,4 +1,19 @@
-<form [formGroup]="employeeForm" (ngSubmit)="pushEmployee()">
+<h3>Alta de empleados de la empresa</h3>
+
+<div class="row p-3">
+    <div class="col-12">
+        <app-errors></app-errors>
+    </div>
+</div>
+
+<div id="register-form-message" class="row alert alert-primary m-auto" style="display: none;" >
+  <div class="col-12 text-center">
+      <h3 >El empleado se ha creado correctamente</h3> 
+  </div>
+    
+</div>
+
+<form [formGroup]="employeeForm" (ngSubmit)="pushEmployee()" id="register-form">
     <div class="row form-group">
         <div class="col-md-6">
             <label for="inputName">Nombre</label>

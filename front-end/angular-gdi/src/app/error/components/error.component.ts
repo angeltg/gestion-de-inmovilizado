@@ -7,16 +7,16 @@ import { Error } from 'src/app/error/error.models';
 import { ResetErrors } from '../store/error.actions';
 
 @Component({
-  selector: 'sn-errors',
+  selector: 'app-errors',
   template: `
-    <div class="errors" *ngIf="(errors$ | async)?.length">
+    <div class="errors row alert alert-danger" *ngIf="(errors$ | async)?.length">
       <p *ngFor="let error of (errors$ | async)">
-        {{ getErrorMessage(error) | capitalize }}
+      {{ getErrorMessage(error) | capitalize }}
       </p>
-      <a (click)="resetErrors()"><fa-icon [icon]="closeIcon"></fa-icon></a>
+      <a class="close" aria-label="Close" (click)="resetErrors()"><fa-icon [icon]="closeIcon"></fa-icon></a>
     </div>
   `,
-  styles: []
+  styles: [' .errors > a { position: absolute; top:5px; right:5px; } ']
 })
 export class ErrorComponent implements OnDestroy {
   @Select(ErrorState) errors$: Observable<Error[]>;
@@ -28,7 +28,9 @@ export class ErrorComponent implements OnDestroy {
     this.store.dispatch(new ResetErrors());
   }
 
-  getErrorMessage({ detail, data }: Error) {
+  getErrorMessage({ detail, data, errmsg }: Error) {
+    //MongoError: E11000 duplicate key error MongoError: inmovilizado.users index: email_1 dup key: { : "ramiro3@yopmail.com" }
+  
     if (detail) {
       return detail;
     }
@@ -36,6 +38,14 @@ export class ErrorComponent implements OnDestroy {
     if (data) {
       return `Tus ${data.label} son incorrectos`;
     }
+    if (errmsg.indexOf('email_1')>0) {
+      return `Este email ya existe en la aplicación`;
+    }
+    if (errmsg.indexOf('company_1')>0) {
+      return `Esta empresa ya existe en la aplicación`;
+    }
+    
+    return errmsg;
   }
 
   ngOnDestroy() {

@@ -38,7 +38,14 @@ constructor(
 ngOnInit() {
   this.actions$
     .pipe(ofAction(AddProductSuccess))
-    .subscribe(() => this.productForm.reset());
+    .subscribe(() =>{ 
+      this.productForm.reset();
+        //Remove with css the form
+        let elemt = document.getElementById('register-form');
+        elemt.style.display = 'none';
+        let elemtWelcome = document.getElementById('register-form-message');
+        elemtWelcome.style.display = 'block';
+      });
 }
 
 formatDate (formDate){

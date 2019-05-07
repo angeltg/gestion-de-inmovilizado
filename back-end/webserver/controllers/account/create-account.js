@@ -92,6 +92,7 @@ async function createUser(req, res, next) {
    * Validate if user data is valid to create an account
    * in other case, generate a 400 Bad Reqeust error
    */
+
   try {
     await validateSchema(accountData);
   } catch (e) {
@@ -104,7 +105,6 @@ async function createUser(req, res, next) {
     password: await bcrypt.hash(accountData.password, 10),
     company: accountData.company,
     verificationCode: uuidV4()
-
   }
   try {
     const userInsert = await User.create(data);
@@ -112,8 +112,7 @@ async function createUser(req, res, next) {
     sedActivationEmail(userInsert);
     res.status(200).send({ user: userInsert });
   } catch (e) {
-    res.status(500).send({ messaje: `Error en el servidor ${e}` });
-
+    res.status(400).send([e]);
   }
 
 

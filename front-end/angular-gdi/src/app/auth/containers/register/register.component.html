@@ -2,8 +2,17 @@
   
   <div class="row p-3">
     
+  <app-errors></app-errors>
 
-<form [formGroup]="registerForm" (ngSubmit)="register()">
+<div id="register-form-message" class="row alert alert-primary m-auto" style="display: none;" >
+  <div class="col-12 text-center">
+      <h3 >Gracias por registrarte.</h3> 
+      <p >Ahora consulta tu correo para validar tu cuenta.</p>
+  </div>
+    
+</div>
+
+<form [formGroup]="registerForm" (ngSubmit)="register()" id="register-form">
     <div class="form-group">
     
         <label for="inputfullName">Nombre</label>
@@ -31,9 +40,17 @@
     <label for="inputPassword">Password</label>
     <app-form-control [control]="registerForm.get('password')">
     <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" >
-  </app-form-control>
-     </div>
+    </app-form-control>
+  </div>
 
+  <div class="row form-group">
+      <div class="col-md-12">
+          <mat-checkbox>
+          He leído y acepto el <a href="/aviso-legal" target="_blanck"> aviso legal</a> 
+        </mat-checkbox>
+      </div>
+  </div>
+  
   <button class="btn btn-primary">Enviar</button>
 </form>
 </div>

@@ -11,7 +11,7 @@ function updateAmortization(restAmortization, productId) {
   })
 }
 
-function calcAmortization(createdAt, amortizationAt, price, productId) {
+async function calcAmortization(createdAt, amortizationAt, price, productId) {
 
   let milisecondsTotalDays = amortizationAt - createdAt;
   if (isFinite(milisecondsTotalDays)) {
@@ -26,7 +26,7 @@ function calcAmortization(createdAt, amortizationAt, price, productId) {
 }
 async function iterProducts(products) {
   for (let i in products) {
-    calcAmortization(products[i]['createdAt'], products[i]['amortizationAt'], products[i]['price'], products[i]['_id']);
+    await calcAmortization(products[i]['createdAt'], products[i]['amortizationAt'], products[i]['price'], products[i]['_id']);
   }
 }
 async function getProducts(req, res, next) {

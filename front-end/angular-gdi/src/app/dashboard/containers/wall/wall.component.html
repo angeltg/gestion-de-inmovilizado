@@ -5,15 +5,16 @@
 
 <table class="table">
   <thead>
-   <tr class="thead-dark">
+   <tr class="thead-light">
     <th scope="col"></th>
-    <th scope="col">Nombre</th>
-    <th scope="col">Categoría</th>
-    <th scope="col">Precio</th>
-    <th scope="col">Amortización pendiente</th>
-    <th scope="col">Fecha de alta</th>
-    <th scope="col">Asignado a</th>
-    <th scope="col">Eliminar</th>
+    <th scope="col" class="text-center">Nombre</th>
+    <th scope="col" class="text-center">Categoría</th>
+    <th scope="col" class="text-right">Coste</th>
+    <th scope="col" class="text-right">Amortización pendiente</th>
+    <th scope="col" class="text-center">Estado</th>
+    <th scope="col" class="text-center">Fecha de alta</th>
+    <th scope="col" class="text-center">Asignado a</th>
+    <th scope="col" class="text-center">Eliminar</th>
   </tr>
   </thead>
   <tbody>
@@ -23,7 +24,7 @@
   </tbody>
 </table>
 </div>
-<p *ngIf='(products$ | async)?.length === 0' >No hay empleados dados de alta</p>
+<p *ngIf='(products$ | async)?.length === 0' >No hay bienes dados de alta</p>
 
 
 

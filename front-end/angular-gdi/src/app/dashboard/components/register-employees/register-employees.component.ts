@@ -7,6 +7,7 @@ import { Store, Actions, ofAction } from '@ngxs/store';
 import { MailValidator } from '../../../auth/validators/mail.validators';
 import { PasswordValidator } from '../../../auth/validators/password.validators';
 import { AddEmployee, AddEmployeeSuccess } from '../../store/employee.action';
+import { ResetErrors } from '../../../error/store/error.actions';
 
 @Component({
   selector: 'register-alta-employees',
@@ -30,14 +31,21 @@ export class RegisterEmployeesComponent implements OnInit {
 
 constructor( 
   private fb: FormBuilder, 
-  private sotre: Store,
+  private store: Store,
   private actions$: Actions
   ) { }
 
 ngOnInit() {
   this.actions$
     .pipe(ofAction(AddEmployeeSuccess))
-    .subscribe(() => this.employeeForm.reset());
+    .subscribe(() => {
+      this.employeeForm.reset()
+      //Remove with css the form
+      let elemt = document.getElementById('register-form');
+      elemt.style.display = 'none';
+      let elemtWelcome = document.getElementById('register-form-message');
+      elemtWelcome.style.display = 'block';
+    });   
 }
 pushEmployee(){
   
@@ -45,7 +53,8 @@ pushEmployee(){
     this.markFormGroupAsTouched(this.employeeForm);
     return;
   }
-  this.sotre.dispatch(new AddEmployee(this.employeeForm.value));
+  this.store.dispatch(new ResetErrors());
+  this.store.dispatch(new AddEmployee(this.employeeForm.value));
 }
 markFormGroupAsTouched(FormGroup: FormGroup){
  

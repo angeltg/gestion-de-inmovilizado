@@ -63,7 +63,7 @@ async function saveEmployee(req, res, next) {
 
   //Solo el manager tiene permisos para crear employees
   if (roll != 'Manager') {
-    res.status(401).send({ messaje: 'Acceso no autorizado' });
+    res.status(401).send('Acceso no autorizado');
   }
 
 
@@ -76,7 +76,7 @@ async function saveEmployee(req, res, next) {
     await validateSchema(employeeData);
   } catch (e) {
     // Create validation error
-    return res.status(400).send(e);
+    return res.status(400).send([e]);
   }
 
 
@@ -95,7 +95,7 @@ async function saveEmployee(req, res, next) {
     sedActivationEmail(employeeData);
     res.status(200).send({ employee: employeeStored });
   } catch (e) {
-    res.status(500).send({ messaje: `Error_ ${e}` });
+    res.status(400).send([e]);
   }
 
 }

@@ -11,6 +11,9 @@ import { LoginComponent } from './containers/login/login.component';
 import { RegisterComponent } from './containers/register/register.component';
 import { SharedModule } from '../shared/shared.module';
 import { JwtInterceptor } from './services/jwt.interceptor';
+import { ErrorModule } from '../error/error.module';
+import { ErrorInterceptor } from './services/error.interceptor';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [ LoginComponent, RegisterComponent ],
@@ -20,10 +23,13 @@ import { JwtInterceptor } from './services/jwt.interceptor';
     SharedModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxsModule.forFeature([AuthState])
+    ErrorModule,
+    NgxsModule.forFeature([AuthState]),
+    MatCheckboxModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   exports: [ LoginComponent, RegisterComponent]
 })

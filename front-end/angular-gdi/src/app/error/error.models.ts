@@ -9,6 +9,7 @@ export interface Error {
     pointer: string;
     parameter: string;
   };
+  errmsg: string;
   meta: any;
   data: ErrorData;
 }

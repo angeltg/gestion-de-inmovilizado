@@ -12,8 +12,8 @@ export class GraficEmployeesComponent {
   constructor(private rollEmployee: EmployeesService){}
 
   public  barChartOptions:any = {
-      scaleShowVerticallines: false,
-      responsive: true
+          scaleShowVerticallines: false,
+          responsive: true
   }
 
   public barChartLabels:string[] = ['Employee', 'Technical','Accountant', 'Purchasing', 'Manager'];

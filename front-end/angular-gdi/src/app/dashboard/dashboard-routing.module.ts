@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { WallComponent } from './containers/wall/wall.component';
-import { MyAccountComponent } from './containers/my-account/my-account.component';
+import { LegalComponent } from '../legal/legal.component';
 import { AuthGuard } from '../auth/services/auth.guard';
 
 import { RegisterProductsComponent } from './components/register-products/register-products.component';
@@ -41,10 +41,6 @@ const routes: Routes = [{
     {
       path: 'graficas-empleados',
       component: GraficEmployeesComponent
-    },
-    {
-      path: 'my-account',
-      component: MyAccountComponent
     }
   ]
 }];

@@ -6,6 +6,7 @@ import { AuthService } from '../../../auth/services/auth.service';
 import { MailValidator } from '../../validators/mail.validators';
 import { Register, RegisterSuccess } from '../../store/auth.actions';
 import { PasswordValidator } from '../../validators/password.validators';
+import { ResetErrors } from '../../../error/store/error.actions';
 
 @Component({
   selector: 'app-register',
@@ -22,21 +23,30 @@ export class RegisterComponent implements OnInit {
 
   constructor( 
     private fb: FormBuilder, 
-    private sotre: Store,
+    private store: Store,
     private actions$: Actions
     ) { }
+
 
   ngOnInit() {
     this.actions$
       .pipe(ofAction(RegisterSuccess))
-      .subscribe(() => this.registerForm.reset());
+      .subscribe(() => {
+        this.registerForm.reset();
+        //Remove with css the form
+        let elemt = document.getElementById('register-form');
+        elemt.style.display = 'none';
+        let elemtWelcome = document.getElementById('register-form-message');
+        elemtWelcome.style.display = 'block';
+      });
   }
   register(){
     if (!this.registerForm.valid){
       this.markFormGroupAsTouched(this.registerForm);
       return;
     }
-    this.sotre.dispatch(new Register(this.registerForm.value));
+    this.store.dispatch(new ResetErrors());
+    this.store.dispatch(new Register(this.registerForm.value));
   }
   markFormGroupAsTouched(FormGroup: FormGroup){
     Object.values(FormGroup.controls).forEach(control =>

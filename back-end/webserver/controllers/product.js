@@ -7,8 +7,8 @@ function getProduct(req, res, next) {
   //Lo necesitamos libre de permisos para soliditar los productos de un employee
   const productId = req.params.id;
   Product.findById(productId, (err, product) => {
-    if (err) res.status(500).send({ messaje: `Error en el servidor ${err}` });
-    if (!product) res.status(404).send({ messaje: `El producto no existe` });
+    if (err) res.status(500).send(`Error en el servidor ${err}`);
+    if (!product) res.status(404).send(`El producto no existe`);
     res.status(200).send({ product });
   })
 }
@@ -53,7 +53,7 @@ function getCategoryProduct(req, res, next) {
   const { company, roll } = claims;
   //Solo el manager tiene permisos para listar a los products
   if (roll != 'Manager') {
-    res.status(401).send({ messaje: 'Acceso no autorizado' });
+    res.status(401).send('Acceso no autorizado');
   }
 
   //Solo mostramos los products si pertenecen a la compañía del user logeado 
@@ -73,10 +73,10 @@ function saveProduct(req, res, next) {
 
   //Si no tiene permisos no pueden crear productos
   if ((roll === 'Employee') || (roll === 'Accountant')) {
-    res.status(401).send({ messaje: 'Acceso no autorizado' });
+    res.status(401).send('Acceso no autorizado');
   }
   if (!isFinite(req.body.price)) {
-    res.status(400).send({ messaje: 'El precio debe ser un número' });
+    res.status(400).send('El precio debe ser un número');
   }
 
   let product = new Product();
@@ -90,7 +90,7 @@ function saveProduct(req, res, next) {
 
 
   product.save((err, productStored) => {
-    if (err) res.status(500).send({ messaje: `Error en el servidor ${err}` });
+    if (err) res.status(500).send(`Error en el servidor ${err}`);
     res.status(200).send({ product: productStored });
   })
 }
@@ -102,7 +102,7 @@ function updateProduct(req, res, next) {
 
   //Si no tiene permisos no puede modificar el producto
   if (roll === 'Employee') {
-    res.status(401).send({ messaje: 'Acceso no autorizado' });
+    res.status(401).send('Acceso no autorizado');
   }
 
   let productId = req.params.id;
@@ -122,7 +122,7 @@ function deleteProduct(req, res, next) {
 
   //Si no tiene permisos no puede borrar el producto
   if (roll != 'Manager') {
-    res.status(401).send({ messaje: 'Acceso no autorizado' });
+    res.status(401).send('Acceso no autorizado');
   }
 
   let productId = req.params.id;
