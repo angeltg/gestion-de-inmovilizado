@@ -20,7 +20,7 @@ async function calcAmortization(createdAt, amortizationAt, price, productId) {
     let totalDays = Math.floor(milisecondsTotalDays / (1000 * 60 * 60 * 24));
     let restDays = Math.floor((milisecondsRestDays) / (1000 * 60 * 60 * 24));
     let restAmortization = ((restDays * price) / totalDays).toFixed(2);
-    console.log(createdAt, amortizationAt, totalDays, restDays, price, productId, restAmortization);
+    if (restAmortization < 0) restAmortization = 0;
     updateAmortization(restAmortization, productId);
   }
 }
