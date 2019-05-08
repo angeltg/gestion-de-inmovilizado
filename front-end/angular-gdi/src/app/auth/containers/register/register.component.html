@@ -1,57 +1,53 @@
-<div class="container  border-top-0 border">
+<div class="container  border-top-0 border pr-1">
   
   <div class="row p-3">
     
   <app-errors></app-errors>
-
-<div id="register-form-message" class="row alert alert-primary m-auto" style="display: none;" >
-  <div class="col-12 text-center">
-      <h3 >Gracias por registrarte.</h3> 
-      <p >Ahora consulta tu correo para validar tu cuenta.</p>
-  </div>
-    
-</div>
-
-<form [formGroup]="registerForm" (ngSubmit)="register()" id="register-form">
-    <div class="form-group">
-    
-        <label for="inputfullName">Nombre</label>
-        <app-form-control [control]="registerForm.get('fullName')">
-          <input type="text" id="inputfullName" class="form-control" placeholder="Nombre" formControlName="fullName"/> 
-        </app-form-control>
-    </div>
-      
-  <div class="form-group">
-
-    <label for="inputEmail">Email</label>
-    <app-form-control [control]="registerForm.get('email')">
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email"/> 
-  </app-form-control>
-    
-  </div>
-  <div class="form-group">
-    <label for="inputCompany">Compañía</label>
-    <app-form-control [control]="registerForm.get('company')">  
-    <input type="text" id="inputCompany" class="form-control" placeholder="Compañía" formControlName="company" /> 
-  </app-form-control>
-  
-  </div>
-  <div class="form-group">
-    <label for="inputPassword">Password</label>
-    <app-form-control [control]="registerForm.get('password')">
-    <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" >
-    </app-form-control>
+   <div class="col-12"> 
+  <div id="register-form-message" class="row alert alert-primary m-auto" style="display: none;" >
+    <div class="col-12 text-center">
+        <h3 >Gracias por registrarte.</h3> 
+        <p >Ahora consulta tu correo para validar tu cuenta.</p>
+    </div>    
   </div>
 
-  <div class="row form-group">
-      <div class="col-md-12">
-          <mat-checkbox>
-          He leído y acepto el <a href="/aviso-legal" target="_blanck"> aviso legal</a> 
-        </mat-checkbox>
+  <form [formGroup]="registerForm" (ngSubmit)="register()" id="register-form">
+      <div class="form-group">
+          <label for="inputfullName">Nombre</label>
+          <app-form-control [control]="registerForm.get('fullName')">
+            <input type="text" id="inputfullName" class="form-control" placeholder="Nombre" formControlName="fullName"/> 
+          </app-form-control>
       </div>
+        
+    <div class="form-group">
+      <label for="inputEmail">Email</label>
+      <app-form-control [control]="registerForm.get('email')">
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email"/> 
+    </app-form-control>
+      
+    </div>
+    <div class="form-group">
+      <label for="inputCompany">Compañía</label>
+      <app-form-control [control]="registerForm.get('company')">  
+      <input type="text" id="inputCompany" class="form-control" placeholder="Compañía" formControlName="company" /> 
+    </app-form-control>
+    
+    </div>
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <app-form-control [control]="registerForm.get('password')">
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" >
+      </app-form-control>
+    </div>
+
+    <div class="form-group">
+          <mat-checkbox>
+            Acepto el <a href="/aviso-legal" target="_blanck"> aviso legal</a> 
+          </mat-checkbox>
+    </div>
+    
+    <button class="btn btn-primary">Enviar</button>
+  </form>
+  </div>  
   </div>
-  
-  <button class="btn btn-primary">Enviar</button>
-</form>
-</div>
 </div>
